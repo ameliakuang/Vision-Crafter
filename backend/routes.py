@@ -12,6 +12,7 @@ def gen_images():
     Body: { "description": "user's description" }
     Returns: { "images": [{"prompt": "...", "url": "..."}, ...] }
     """
+    # get the user's description
     data = request.get_json(force=True)
     description = data.get("description", "Generate a creative and visually appealing image")
     

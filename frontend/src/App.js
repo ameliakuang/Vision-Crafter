@@ -12,25 +12,41 @@ function App() {
       setLoading(true);
       setError(null);
       
-      const response = await fetch('http://localhost:8000/api/generate-images', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ description }),
-      });
+      // 创建多个并行请求
+      const numRequests = 3; // 同时发送3个请求
+      const requests = Array(numRequests).fill().map(() => 
+        fetch('http://localhost:8000/api/generate-images', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ description }),
+        })
+      );
 
-      if (!response.ok) {
+      // 并行执行所有请求
+      const responses = await Promise.all(requests);
+      
+      // 检查所有响应是否成功
+      const failedResponse = responses.find(response => !response.ok);
+      if (failedResponse) {
         throw new Error('Failed to generate images');
       }
 
-      const data = await response.json();
-      console.log('Data received from generate-images: ', data);
-      if (data.results) {
-        setResults(data.results);
-      } else {
-        throw new Error('Invalid response format')
-      }
+      // 并行处理所有响应数据
+      const dataPromises = responses.map(response => response.json());
+      const allData = await Promise.all(dataPromises);
+      
+      // 合并所有结果
+      const combinedResults = allData.reduce((acc, data) => {
+        if (data.results) {
+          return [...acc, ...data.results];
+        }
+        return acc;
+      }, []);
+
+      console.log('All data received:', combinedResults);
+      setResults(combinedResults);
     } catch (err) {
       console.error('Error details:', err);
       setError(err.message);

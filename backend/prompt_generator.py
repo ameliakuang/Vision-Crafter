@@ -59,27 +59,3 @@ class PromptGenerator:
         except Exception as e:
             print(f"Error occurred while generating prompts: {str(e)}")
             return []
-
-# Usage example
-if __name__ == "__main__":
-    # Initialize generator
-    generator = PromptGenerator()
-    
-    # Example previous prompts for in-context learning
-    previous_prompts = [
-        "A majestic lion in the savannah at sunset.",
-        "A futuristic city skyline with flying cars."
-    ]
-    additional_context = "Previous prompts:\n" + "\n".join(previous_prompts) + \
-        "\nPlease refer to the style and elements of these previous prompts for in-context learning. Ensure the new prompts are creative."
-
-    # Generate prompts
-    user_input = "A cute cat"
-    prompts = generator.generate_prompts(
-        user_description=user_input,
-        additional_context=additional_context
-    )
-    
-    # Print results
-    for i, prompt in enumerate(prompts, 1):
-        print(f"Prompt {i}: {prompt}") 

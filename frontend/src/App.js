@@ -6,28 +6,42 @@ function App() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedPrompts, setSelectedPrompts] = useState([]);
 
   const generateImages = async () => {
     try {
       setLoading(true);
       setError(null);
+      setResults([]);
       
+      const requestBody = selectedPrompts.length > 0
+        ? { selected_prompts: selectedPrompts, description: description }
+        : { description: description };
+
+      if (selectedPrompts.length === 0 && (!description || !description.trim())) {
+        setError("Please enter a description or select images to regenerate.");
+        setLoading(false);
+        return;
+      }
+
       const response = await fetch('http://localhost:8000/api/generate-images', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ description }),
+        body: JSON.stringify(requestBody),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to generate images');
+        const errorData = await response.json().catch(() => ({ error: 'Failed to generate images' }));
+        throw new Error(errorData.error || 'Failed to generate images');
       }
 
       const data = await response.json();
       console.log('Data received from generate-images: ', data);
       if (data.results) {
         setResults(data.results);
+        setSelectedPrompts([]);
       } else {
         throw new Error('Invalid response format')
       }
@@ -36,6 +50,14 @@ function App() {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleImageSelect = (prompt) => {
+    if (selectedPrompts.includes(prompt)) {
+      setSelectedPrompts(selectedPrompts.filter(p => p !== prompt));
+    } else {
+      setSelectedPrompts([...selectedPrompts, prompt]);
     }
   };
 
@@ -51,17 +73,17 @@ function App() {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Describe the image you want to generate..."
+            placeholder={selectedPrompts.length > 0 ? "Optionally add more details for regeneration..." : "Describe the image you want to generate..."}
             rows={4}
             className="description-input"
           />
           
           <button 
             onClick={generateImages} 
-            disabled={loading || !description}
+            disabled={loading || (selectedPrompts.length === 0 && !description)}
             className="generate-button"
           >
-            {loading ? 'Generating...' : 'Generate Images'}
+            {loading ? 'Generating...' : selectedPrompts.length > 0 ? 'Regenerate Selected Images' : 'Generate Images'}
           </button>
         </div>
 
@@ -81,7 +103,11 @@ function App() {
         {results.length > 0 && (
           <div className="gallery">
             {results.map((item, index) => (
-              <div key={index} className="gallery-item">
+              <div 
+                key={index} 
+                className={`gallery-item ${selectedPrompts.includes(item.prompt) ? 'selected' : ''}`}
+                onClick={() => handleImageSelect(item.prompt)}
+              >
                 <div className="image-container">
                   <img 
                     src={item.url}
@@ -90,6 +116,9 @@ function App() {
                       console.error('Image failed to load:', e);
                     }}
                   />
+                  {selectedPrompts.includes(item.prompt) && (
+                    <div className="selected-indicator">✓</div>
+                  )}
                 </div>
                 <div className="prompt-text">
                   <p>{item.prompt}</p>

@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 # Global thread pool executor for running sync methods in threads
 executor = ThreadPoolExecutor()
 # Semaphore to limit maximum concurrent API calls
-semaphore = asyncio.Semaphore(5)  # You can tune this number based on rate limits
+semaphore = asyncio.Semaphore(6) 
 
 async def generate_single_image(together: Together, prompt: str, max_retries: int = 3) -> Dict:
     """
@@ -77,9 +77,9 @@ async def gen_images():
     """
     data = request.get_json(force=True)
     description = data.get("description", "Generate a creative and visually appealing image")
-
-    # Step 1: Generate 10 prompts
-    prompts = create_prompts(description)
+    selected_prompts = data.get("selected_prompts", None)
+    # Step 1: Generate 6 prompts
+    prompts = create_prompts(description, selected_prompts)
 
     # Step 2: Generate images in parallel
     together = current_app.together_client

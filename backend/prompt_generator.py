@@ -15,11 +15,11 @@ class PromptGenerator:
         self.base_system_message_template = """You are a professional image prompt generation expert. Your tasks are:
         1. Generate {num_prompts} different detailed and vivid image prompts based on user's brief description
         3. Ensure the generated prompts are suitable for AI image generation models like Stable Diffusion or DALL·E
-        4. Each prompt should be unique, creative and diverse
-        5. Each prompt should have a different style at the beginning.
+        4. Each prompt should be unique, creative and diverse (must include realistic style prompt)
+        5. Each prompt should have a distinct artistic style at the beginning.
         6. Make sure to explicitly mention the style in each prompt
         7. Feel free to combine different styles or create unique style variations
-        8. Ensure the generated image styles are highly relevant and consistent with the user's input description.
+        8. Ensure the generated image styles are highly relevant and consistent with the real world.
         9. Format Requirement: Output must strictly follow this format:
             1. "Prompt text one."
             2. "Prompt text two."
@@ -47,12 +47,17 @@ class PromptGenerator:
         """
         # Build complete system message
         system_message = self.base_system_message_template.format(num_prompts=num_prompts)
-        if style_preferences:
+        if style_preferences: # potential todo:use LLM to summarize user preference(maybe can make this as a small trainable module)
             system_message += f"\nPlease focus on these styles: {', '.join(style_preferences)}"
         if additional_context:
-            system_message += f"\nAdditional requirements or context: {additional_context}"
+            system_message += f"""
+            The user has previously preferred the following prompts, which reflect their preferred style:
+            {additional_context}
+            Please take these preferences as in-context examples. In addition to strictly following the instructions above, your generated prompts should match the **style, tone, artistic direction, and level of detail** found in the user’s preferred prompts.
+            """
             
         try:
+            print("current system_message is:", system_message)
             response = self.openai_client.chat.completions.create(
                 model="gpt-4",
                 messages=[
@@ -68,7 +73,6 @@ class PromptGenerator:
             # Parse response and return prompt list
             generated_text = response.choices[0].message.content
             prompts = [prompt.strip() for prompt in generated_text.split('\n') if prompt.strip()]
-            print("++++++++++++", prompts)
             return prompts
 
         

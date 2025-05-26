@@ -2,18 +2,15 @@ import re
 
 def process_prompts(prompt_list: list) -> list:
     """
-    Process list of prompts, remove numbers and quotes, return cleaned prompt list
-    
+    Processes a list of strings and extracts the content within the first pair of double quotes from each string.
+
     Args:
-        prompt_list: List of prompts containing numbers and quotes
-        
+        prompt_list: A list of strings, where each string is expected to contain
+                     content enclosed in double quotes (e.g., '1. "example prompt"').
+
     Returns:
-        list: List of cleaned prompts
+        A list of strings, containing the extracted content from within the
+        double quotes for each item in the input list.
     """
-    pattern = r'\d+\.\s*"([^"]+)"'
-    cleaned_prompts = []
-    for text in prompt_list:
-        matches = re.findall(pattern, text)
-        cleaned_prompts.extend(matches)
-    
-    return cleaned_prompts
+    prompts = [re.search(r'"(.*?)"', item).group(1) for item in prompt_list]
+    return prompts

@@ -27,7 +27,7 @@ async def generate_single_image(together: Together, prompt: str, max_retries: in
             # Use run_in_executor to offload the blocking call
             def blocking_call():
                 return together.images.generate(
-                    model="black-forest-labs/FLUX.1-schnell-Free",
+                    model="black-forest-labs/FLUX.1-schnell",
                     prompt=prompt,
                     steps=4,
                     n=1

@@ -1,8 +1,8 @@
 import json
 from datetime import datetime
 from typing import List, Optional, Dict
-from prompt_generator import PromptGenerator
-from backend.style_extraction_agent import StyleExtractionAgent
+from .prompt_generator import PromptGenerator
+from .style_extraction_agent import StyleExtractionAgent
 
 class PromptGenerationPipeline:
     """
@@ -102,33 +102,58 @@ class PromptGenerationPipeline:
             "extracted_features": extracted_features
         }
 
-    def provide_feedback(self, liked_prompt_indices: List[int], liked_style_keywords: List[str]):
+    def provide_feedback(self, liked_prompts: List[str], liked_style_keywords: List[str]):
         """
-        Record user's feedback including both liked prompts and style keywords.
-        
+        Record user's feedback including liked prompts (by string) and style keywords.
+
         Args:
-            liked_prompt_indices: Indices of prompts that user liked
-            liked_style_keywords: Style keywords that user liked
+            liked_prompts: List of complete prompt strings that user liked from the latest batch.
+            liked_style_keywords: Style keywords that user liked.
         """
+        # Find the start of the latest batch in history
+        # This logic remains to correctly identify which entries in history belong to the latest round
         latest_batch_start = len(self.history) - len([h for h in self.history if h["liked"] is None])
         
-        # Update prompt feedback in history
-        for idx, item in enumerate(self.history[latest_batch_start:]):
-            absolute_idx = latest_batch_start + idx
-            if idx in liked_prompt_indices:
-                self.history[absolute_idx]["liked"] = True
-                # Add to liked prompts list
-                self.preferences["liked_prompts"].append(item["prompt"])
-            else:
-                self.history[absolute_idx]["liked"] = None
+        # Iterate through the latest batch in history
+        # and update the 'liked' status based on the provided liked_prompts strings
+        latest_batch_prompts_in_history = self.history[latest_batch_start:]
 
-        # Update style keyword preferences
+        # First, mark all prompts in the latest batch as not liked (or None) by default
+        for item in latest_batch_prompts_in_history:
+             item["liked"] = None # Or False, depending on desired default for unliked in latest batch
+
+        # Then, iterate through the provided liked_prompts strings
+        # and find matching entries in the latest batch in history to mark them as liked
+        updated_liked_prompts_list = self.preferences["liked_prompts"] # Start with existing liked prompts
+
+        for liked_prompt_str in liked_prompts:
+            found_in_latest_batch = False
+            # Iterate through the *entries* in the latest batch in history
+            for item in latest_batch_prompts_in_history:
+                 # Check if the prompt string matches
+                 if item["prompt"].strip() == liked_prompt_str.strip():
+                      item["liked"] = True # Mark as liked in history
+                      # Add the prompt string to the preferences liked_prompts list
+                      # Avoid adding duplicates to the preferences list if the same prompt is liked again in a later round (less likely but possible)
+                      if item["prompt"] not in updated_liked_prompts_list:
+                          updated_liked_prompts_list.append(item["prompt"])
+                      found_in_latest_batch = True
+                      break # Assuming unique prompts in the latest batch for simplicity
+
+            if not found_in_latest_batch:
+                 print(f"Warning: Liked prompt string '{liked_prompt_str}' not found in the latest generation batch in history.")
+
+
+        # Update the preferences liked_prompts list after processing the latest feedback
+        self.preferences["liked_prompts"] = updated_liked_prompts_list
+
+        # Update style keyword preferences - this logic remains the same
         self.preferences["style_keywords"].extend(liked_style_keywords)
         # Remove duplicates while preserving order
         self.preferences["style_keywords"] = list(dict.fromkeys(self.preferences["style_keywords"]))
-        
+
         self.round += 1
-        # self.save_history_to_json()
+        # self.save_history_to_json() # Uncomment if you want to save history here
 
     def _extract_style_preferences(self, prompts: List[str]) -> Dict[str, Dict[str, List[str]]]:
         """

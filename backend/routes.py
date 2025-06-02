@@ -1,10 +1,13 @@
 from flask import Blueprint, current_app, request, jsonify
-from .services import create_prompts
+from .services import process_generation_request
 import logging
 import asyncio
 from together import Together
 from typing import List, Dict
 from concurrent.futures import ThreadPoolExecutor
+from .prompt_generation_pipline import PromptGenerationPipeline
+from .prompt_generator import PromptGenerator
+from .style_extraction_agent import StyleExtractionAgent
 
 api_bp = Blueprint("api", __name__)
 logger = logging.getLogger(__name__)
@@ -71,49 +74,40 @@ async def generate_images_parallel(together: Together, prompts: List[str]) -> Li
 async def gen_images():
     """
     POST /api/generate-images
-    Body: { 
+    Body: {
         "description": "user's description",
         "feedback": {  # Optional feedback information
-            "liked_prompt_indices": [0, 2],
+            "liked_prompt_indices": [0, 2], # Indices relative to the LAST batch shown to the user
             "liked_style_keywords": ["minimalist", "impressionist"]
         }
     }
-    Returns: { 
-        "prompts": ["prompt1", "prompt2", ...],
-        "extracted_features": { ... },
-        "results": [{"prompt": "...", "url": "..."}, ...]
+    Returns: {
+        "prompts": ["prompt1", "prompt2", ...],  # Generated prompts
+        "extracted_features": { ... },  # Extracted features
+        "results": [{"prompt": "...", "url": "..."}, ...]  # Generated images
     }
     """
     data = request.get_json(force=True)
     description = data.get("description", "Generate a creative and visually appealing image")
     feedback = data.get("feedback", None)
-    
-    # Check if this is initial generation by checking if there's any feedback
-    is_initial = feedback is None
-    
-    # Get selected prompts from feedback if available
-    selected_prompts = None
-    if not is_initial and feedback.get("liked_prompt_indices"):
-        # Convert liked prompt indices to actual prompts
-        # This assumes the frontend sends the correct indices
-        selected_prompts = '\n'.join([
-            f"Selected prompt {i+1}: {prompt}"
-            for i, prompt in enumerate(feedback.get("liked_prompt_indices", []))
-        ])
-    
-    # Generate prompts using the service
-    result = create_prompts(
+
+    # Get the pipeline instance (assuming it's attached to current_app)
+    pipeline = current_app.pipeline
+
+    # Process the request using the service function
+    # The service function now handles feedback and calls the correct pipeline method
+    generation_result = process_generation_request(
+        pipeline=pipeline,
         user_description=description,
-        selected_prompts=selected_prompts,
-        is_initial=is_initial
+        feedback=feedback
     )
-    
+
     # Generate images in parallel
     together = current_app.together_client
-    image_results = await generate_images_parallel(together, result["prompts"])
-    
+    image_results = await generate_images_parallel(together, generation_result["prompts"])
+
     return jsonify({
-        "prompts": result["prompts"],
-        "extracted_features": result["extracted_features"],
+        "prompts": generation_result["prompts"],
+        "extracted_features": generation_result["extracted_features"],
         "results": image_results
     })

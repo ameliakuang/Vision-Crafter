@@ -1,55 +1,47 @@
 from .prompt_generator import PromptGenerator
+from .style_extraction_agent import StyleExtractionAgent
+from .prompt_generation_pipline import PromptGenerationPipeline
 from flask import current_app
 from typing import List, Optional, Dict
 import logging
-from .utils import process_prompts
 
 logger = logging.getLogger(__name__)
 
 # potential bug: image generation rate prompts
-def create_prompts(
-    user_description: str = "Generate a creative and visually appealing image", 
-    selected_prompts: Optional[str] = None,
-    is_initial: bool = True
+def process_generation_request(
+    pipeline: PromptGenerationPipeline,
+    user_description: str = "Generate a creative and visually appealing image",
+    feedback: Optional[Dict] = None
 ) -> Dict[str, List[str]]:
     """
-    Generate image prompts using the PromptGenerator.
-    
+    Processes a user request for image generation.
+    Handles feedback, calls the appropriate pipeline generation method,
+    and returns prompts and extracted features.
+
     Args:
-        user_description: User input for prompt generation
-        selected_prompts: Previously selected prompts for context
-        is_initial: Whether this is the initial generation
-        
+        pipeline: The PromptGenerationPipeline instance.
+        user_description: User input for prompt generation.
+        feedback: Optional feedback information from the user.
+
     Returns:
         Dictionary containing:
-        - prompts: List of generated prompts
-        - extracted_features: Features extracted from the prompts
+        - prompts: List of generated prompts.
+        - extracted_features: Features extracted from the prompts.
     """
-    generator = PromptGenerator(current_app.openai_client)
-    
+    if feedback:
+        pipeline.provide_feedback(
+            feedback.get("liked_prompts", []),
+            feedback.get("liked_style_keywords", [])
+        )
+
+    is_initial = len(pipeline.preferences["liked_prompts"]) == 0
+
     if is_initial:
-        # First-time generation, use initial generation logic
-        prompts = generator.generate_prompts(
-            user_description=user_description,
-            initial_prompt=True  # Mark this as initial generation
-        )
+        result = pipeline.generate_initial_prompts(user_description=user_description)
     else:
-        # Non-initial generation, use optimized generation logic
-        prompts = generator.generate_prompts(
-            user_description=user_description,
-            additional_context=selected_prompts
-        )
-    
-    # Process generated prompts
-    input_prompts = process_prompts(prompts)
-    logger.info(f'Prompts: {input_prompts}')
-    print("generating prompts", input_prompts)
-    
-    # Extract features
-    style_agent = current_app.style_agent
-    extracted_features = style_agent.extract_features(input_prompts)
-    
-    return {
-        "prompts": input_prompts,
-        "extracted_features": extracted_features
-    }
+        result = pipeline.generate_refined_prompts(user_description=user_description)
+
+    logger.info(f'Generated Prompts: {result["prompts"]}')
+    print("Generated prompts:", result["prompts"])
+
+    return result

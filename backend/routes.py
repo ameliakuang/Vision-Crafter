@@ -3,7 +3,6 @@ from .services import create_prompts
 import logging
 import asyncio
 from together import Together
-import time
 from typing import List, Dict
 from concurrent.futures import ThreadPoolExecutor
 
@@ -71,21 +70,50 @@ async def generate_images_parallel(together: Together, prompts: List[str]) -> Li
 @api_bp.route("/generate-images", methods=["POST"])
 async def gen_images():
     """
-    POST  /api/generate-images
-    Body: { "description": "user's description" }
-    Returns: { "results": [{"prompt": "...", "url": "..."}, ...] }
+    POST /api/generate-images
+    Body: { 
+        "description": "user's description",
+        "feedback": {  # Optional feedback information
+            "liked_prompt_indices": [0, 2],
+            "liked_style_keywords": ["minimalist", "impressionist"]
+        }
+    }
+    Returns: { 
+        "prompts": ["prompt1", "prompt2", ...],
+        "extracted_features": { ... },
+        "results": [{"prompt": "...", "url": "..."}, ...]
+    }
     """
     data = request.get_json(force=True)
     description = data.get("description", "Generate a creative and visually appealing image")
-    selected_prompts = data.get("selected_prompts", None)
-    # Step 1: Generate 6 prompts
-    prompts = create_prompts(description, selected_prompts)
-
-    # Step 2: Generate images in parallel
+    feedback = data.get("feedback", None)
+    
+    # Check if this is initial generation by checking if there's any feedback
+    is_initial = feedback is None
+    
+    # Get selected prompts from feedback if available
+    selected_prompts = None
+    if not is_initial and feedback.get("liked_prompt_indices"):
+        # Convert liked prompt indices to actual prompts
+        # This assumes the frontend sends the correct indices
+        selected_prompts = '\n'.join([
+            f"Selected prompt {i+1}: {prompt}"
+            for i, prompt in enumerate(feedback.get("liked_prompt_indices", []))
+        ])
+    
+    # Generate prompts using the service
+    result = create_prompts(
+        user_description=description,
+        selected_prompts=selected_prompts,
+        is_initial=is_initial
+    )
+    
+    # Generate images in parallel
     together = current_app.together_client
-    result = await generate_images_parallel(together, prompts)
-    print("generated images:", result)
-
+    image_results = await generate_images_parallel(together, result["prompts"])
+    
     return jsonify({
-        "results": result
+        "prompts": result["prompts"],
+        "extracted_features": result["extracted_features"],
+        "results": image_results
     })

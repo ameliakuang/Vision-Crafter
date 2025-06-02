@@ -223,3 +223,112 @@
       right: 5px;
     }
   }
+  
+  /* Style for the container of highlighted text parts */
+  .prompt-text span {
+    cursor: pointer;
+    padding: 1px 2px;
+    margin: 0 1px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Remove default list styling from prompt numbers if necessary, depending on exact prompt format */
+  .prompt-text p {
+    /* If prompts are like "1. "Prompt text"", you might need to adjust padding/margin */
+  }
+  
+  /* Define background colors for different feature categories */
+  .highlight-style {
+    background-color: #ffcccc; /* Light Red/Pink */
+    color: blue;
+    font-weight: bold;
+  }
+  
+  .highlight-subject {
+    background-color: #ffe0b3; /* Light Orange */
+  }
+  
+  .highlight-action {
+    background-color: #d9f1a3; /* Light Green */
+  }
+  
+  .highlight-objects {
+    background-color: #a3c2ff; /* Light Blue */
+  }
+  
+  .highlight-setting {
+    background-color: #e6b3ff; /* Light Purple */
+  }
+  
+  .highlight-colors {
+    background-color: #ffffb3; /* Light Yellow */
+  }
+  
+  .highlight-time {
+    background-color: #d3d3d3; /* Light Gray */
+  }
+  
+  .highlight-mood {
+    background-color: #ffc9a3; /* Peach */
+  }
+  
+  .highlight-details {
+    background-color: #b2ebf2; /* Light Cyan - different from yellow */
+    /* padding: 2px; */ /* Removing padding here to be consistent */
+    /* border-radius: 3px; */ /* Removing border-radius here */
+  }
+  
+  /* Style for keywords that the user has selected by clicking */
+  .selected-feature {
+    border: 2px solid #007bff; /* Primary Blue border */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.6); /* Primary Blue glow */
+    /* Optional: Change background color or text color when selected */
+    /* background-color: #007bff !important; */ /* Use !important if needed to override category color */
+    /* color: white; */
+  }
+  
+  /* Style for the entire gallery item when the image is selected for regeneration */
+  .gallery-item.selected {
+    border: 2px solid #28a745; /* Success Green border */
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.8); /* Success Green glow */
+    /* You might want a different background or opacity for the whole item */
+    /* opacity: 0.9; */
+  }
+  
+  /* Style for displaying selected keywords */
+  .selected-features-display {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px dashed #007bff; /* Border matching selected feature */
+    border-radius: 5px;
+    background-color: #e9f5ff; /* Light blue background */
+    text-align: left;
+    word-break: break-word;
+    color: #0056b3;
+    font-weight: bold;
+  }
+  
+  /* Style for the selected indicator (checkmark) */
+  .selected-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(40, 167, 69, 0.9); /* Semi-transparent green */
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    pointer-events: none; /* Allow clicks to pass through to image container */
+    z-index: 1; /* Ensure it's above the image */
+  }
+  
+  /* Define default background color for any highlight classes not explicitly styled */
+  .prompt-text span[class^="highlight-"] {
+    background-color: #e0f2f7; /* Default Light Blue */
+  }

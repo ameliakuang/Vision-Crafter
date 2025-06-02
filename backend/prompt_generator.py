@@ -13,25 +13,25 @@ class PromptGenerator:
         self.openai_client = openai_client
 
         self.base_system_message_template = """You are a professional image prompt generation expert. Your tasks are:
-        1. Generate {num_prompts} different detailed and vivid image prompts based on user's brief description
-        3. Ensure the generated prompts are suitable for AI image generation models like Stable Diffusion or DALL·E
-        4. Each prompt should be unique, creative and diverse (must include realistic style prompt)
+        1. Generate {num_prompts} different detailed and vivid image prompts based on user's brief description.
+        2. Ensure the generated prompts are suitable for AI image generation models like Stable Diffusion or DALL·E.
+        3. Format Requirement: Output must strictly follow this format:
+            1. \"Prompt text one.\"\n            2. \"Prompt text two.\"\n            ...\n           Each prompt must:
+            - Begin with a number followed by a period.
+            - Be enclosed entirely in double quotes (\")."""
+
+        self.initial_system_message_template = """
+        4. Each prompt should be unique, creative and diverse.
         5. Each prompt should have a distinct artistic style at the beginning.
-        6. Make sure to explicitly mention the style in each prompt
-        7. Feel free to combine different styles or create unique style variations
+        6. Make sure to explicitly mention the style in each prompt.
+        7. Feel free to combine different styles or create unique style variations.
         8. Ensure the generated image styles are highly relevant and consistent with the real world.
-        9. Format Requirement: Output must strictly follow this format:
-            1. "Prompt text one."
-            2. "Prompt text two."
-            3. "Prompt text three."
-           Each prompt must:
-            - Begin with a number followed by a period
-            - Be enclosed entirely in double quotes (")
         """
     
     def generate_prompts(
         self,
         user_description: str,
+        initial_prompt: bool = False,
         additional_context: Optional[str] = None,
         num_prompts: int = 6,
         style_preferences: Optional[List[str]] = None
@@ -47,14 +47,21 @@ class PromptGenerator:
         """
         # Build complete system message
         system_message = self.base_system_message_template.format(num_prompts=num_prompts)
-        if style_preferences: # potential todo:use LLM to summarize user preference(maybe can make this as a small trainable module)
-            system_message += f"\nPlease focus on these styles: {', '.join(style_preferences)}"
-        if additional_context:
-            system_message += f"""
-            The user has previously preferred the following prompts, which reflect their preferred style:
-            {additional_context}
-            Please take these preferences as in-context examples. In addition to strictly following the instructions above, your generated prompts should match the **style, tone, artistic direction, and level of detail** found in the user’s preferred prompts.
-            """
+        if initial_prompt:
+            system_message += self.initial_system_message_template
+        else:
+            # detail control or general control, which means an image can only have style_preferences or additional_context(since additional_context may contain the style or elements that the user don't want)
+            # if select certain style preferences, use them to generate prompts
+            if style_preferences: # potential todo:use LLM to summarize user preference(maybe can make this as a small trainable module)
+                system_message += f"\nPlease focus on these specific styles and image details: {', '.join(style_preferences)}"
+            
+            # if only select the image without selecting any details
+            if additional_context:
+                system_message += f"""
+                The user has previously preferred the following prompts, which reflect their preferred style:
+                {additional_context}
+                Please take these preferences as in-context examples. In addition to strictly following the instructions above, your generated prompts should match the **style, tone, artistic direction, and level of detail** found in the user’s preferred prompts.
+                """
             
         try:
             print("current system_message is:", system_message)

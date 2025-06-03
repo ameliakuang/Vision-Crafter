@@ -108,6 +108,9 @@ async def gen_images():
 
     logger.info(f"prompts: {generation_result['prompts']}")
 
+    # Save generation results
+    pipeline._save_generation_results(image_results, generation_result["prompts"])
+
     return jsonify({
         "prompts": generation_result["prompts"],
         "results": image_results

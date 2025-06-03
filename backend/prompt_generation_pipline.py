@@ -4,6 +4,10 @@ from typing import List, Optional, Dict
 from .prompt_generator import PromptGenerator
 from .style_extraction_agent import StyleExtractionAgent
 import logging
+import os
+import shutil
+import requests
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -32,6 +36,69 @@ class PromptGenerationPipeline:
             "liked_prompts": [],  # Store user's liked complete prompts
             "style_keywords": []  # Store user's preferred style keywords
         }
+        # Create base output directory
+        self.output_dir = Path("outputs")
+        self.output_dir.mkdir(exist_ok=True)
+        
+        # Create session directory with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.session_dir = self.output_dir / f"vision_crafter_{timestamp}"
+        self.session_dir.mkdir(exist_ok=True)
+
+    def _save_generation_results(self, results: List[Dict], prompts_with_features: List[Dict]) -> None:
+        """
+        Save generated images and their metadata to a structured directory.
+        
+        Args:
+            results: List of dictionaries containing image URLs and prompts
+            prompts_with_features: List of dictionaries containing prompts and their features
+        """
+        # Create round directory within session directory
+        round_dir = self.session_dir / f"round_{self.round}"
+        round_dir.mkdir(exist_ok=True)
+
+        # Download images and prepare complete metadata
+        complete_metadata = {
+            "round": self.round,
+            "timestamp": datetime.now().strftime("%Y%m%d_%H%M%S"),
+            "generations": []
+        }
+
+        # Process each result
+        for i, result in enumerate(results):
+            try:
+                # Download image
+                response = requests.get(result["url"], stream=True)
+                response.raise_for_status()
+                
+                # Save image
+                image_path = round_dir / f"image_{i+1}.png"
+                with open(image_path, "wb") as f:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        f.write(chunk)
+                
+                # Find matching prompt and features
+                prompt_data = next(
+                    (p for p in prompts_with_features if p["text"] == result["prompt"]),
+                    {"text": result["prompt"], "features": {}}
+                )
+                
+                # Add to complete metadata
+                complete_metadata["generations"].append({
+                    "prompt": result["prompt"],
+                    "features": prompt_data["features"],
+                    "image_path": str(image_path.relative_to(self.output_dir)),
+                    "image_url": result["url"]
+                })
+                
+                logger.info(f"Saved image and metadata for prompt {i+1} in round {self.round}")
+                
+            except Exception as e:
+                logger.error(f"Failed to save image {i+1} in round {self.round}: {str(e)}")
+
+        # Save complete metadata to a single JSON file
+        with open(round_dir / "round_data.json", "w") as f:
+            json.dump(complete_metadata, f, indent=2)
 
     def generate_initial_prompts(self, user_description: str, num_prompts: int = 6) -> Dict[str, List[Dict]]:
         """

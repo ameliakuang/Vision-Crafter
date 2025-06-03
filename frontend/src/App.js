@@ -6,9 +6,12 @@ import './App.css';
 // the currently selected keywords, and the handler for keyword selection.
 const HighlightedPrompt = ({ prompt, features, selectedKeywords, onFeatureSelect }) => {
   if (!features) {
-    // If no features for this prompt, just return the original text
+    console.log(`No features found for prompt: ${prompt}`);
     return <span>{prompt}</span>;
   }
+
+  console.log(`Processing prompt: "${prompt}"`);
+  console.log('Features for this prompt:', features);
 
   const parts = [];
   const featureCategories = Object.keys(features);
@@ -16,20 +19,24 @@ const HighlightedPrompt = ({ prompt, features, selectedKeywords, onFeatureSelect
   // Collect all keyword occurrences with their category and index in the prompt
   const keywordOccurrences = [];
   featureCategories.forEach(category => {
+    if (!Array.isArray(features[category])) {
+      console.warn(`Features for category ${category} is not an array:`, features[category]);
+      return;
+    }
+    
     features[category].forEach(keyword => {
       if (keyword && keyword.length > 0) {
-        // Find all occurrences of the keyword in the prompt
-        // Using a simple indexOf loop. For more complex scenarios, regex might still be needed,
-        // but this is more reliable for exact phrase matching.
-        let index = prompt.toLowerCase().indexOf(keyword.toLowerCase());
-        while (index !== -1) {
+        // Find all occurrences of the keyword in the prompt, case-insensitive
+        const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
+        let match;
+        while ((match = regex.exec(prompt)) !== null) {
+          console.log(`Found match for "${keyword}" in category "${category}" at index ${match.index}`);
           keywordOccurrences.push({
-            keyword: prompt.substring(index, index + keyword.length), // Use substring to get original casing
+            keyword: prompt.substring(match.index, match.index + keyword.length), // Use substring to get original casing
             category: category,
-            startIndex: index,
-            endIndex: index + keyword.length
+            startIndex: match.index,
+            endIndex: match.index + keyword.length
           });
-          index = prompt.toLowerCase().indexOf(keyword.toLowerCase(), index + 1);
         }
       }
     });
@@ -37,6 +44,7 @@ const HighlightedPrompt = ({ prompt, features, selectedKeywords, onFeatureSelect
 
   // Sort occurrences by start index
   keywordOccurrences.sort((a, b) => a.startIndex - b.startIndex);
+  console.log('Sorted keyword occurrences:', keywordOccurrences);
 
   let lastIndex = 0;
 
@@ -47,8 +55,8 @@ const HighlightedPrompt = ({ prompt, features, selectedKeywords, onFeatureSelect
     }
 
     // Add the highlighted span
-    const isSelected = selectedKeywords.includes(occurrence.keyword); // Check if the specific keyword string is selected
-    const key = `${occurrence.category}-${occurrence.keyword}-${occurrence.startIndex}`; // Unique key
+    const isSelected = selectedKeywords.includes(occurrence.keyword);
+    const key = `${occurrence.category}-${occurrence.keyword}-${occurrence.startIndex}`;
 
     parts.push(
       <span
@@ -56,7 +64,7 @@ const HighlightedPrompt = ({ prompt, features, selectedKeywords, onFeatureSelect
         className={`highlight-${occurrence.category} ${isSelected ? 'selected-feature' : ''}`}
         onClick={(e) => {
           e.stopPropagation();
-          onFeatureSelect(occurrence.keyword); // Pass the exact keyword string
+          onFeatureSelect(occurrence.keyword);
         }}
         title={`Category: ${occurrence.category}\nClick to select/deselect`}
       >
@@ -74,7 +82,8 @@ const HighlightedPrompt = ({ prompt, features, selectedKeywords, onFeatureSelect
 
   // If no keywords found or processed, return the original prompt
   if (parts.length === 0 && prompt) {
-      return <span>{prompt}</span>;
+    console.log('No keywords found in prompt, returning original text');
+    return <span>{prompt}</span>;
   }
 
   return <span>{parts}</span>;
@@ -147,25 +156,25 @@ function App() {
       const data = await response.json();
       console.log('Data received from generate-images: ', data);
 
-      // Backend now returns prompts, extracted_features, and results
-      if (data.results && data.prompts && data.extracted_features) {
+      // Backend now returns prompts with their features combined
+      if (data.results && data.prompts) {
+        console.log('Received data from backend:', data);
+        
         // Update state with new results and prompts
         setResults(data.results); // results should contain {prompt, url}
 
         // Map extracted features to prompts for easy lookup by prompt string
         const featuresByPrompt = {};
-         // Assuming data.prompts and data.extracted_features are aligned by index
-         // data.extracted_features is { "0": {features}, "1": {features}, ... }
-         // We need to map this to { prompt_string: {features} }
-         data.prompts.forEach((prompt, index) => {
-             // Ensure the index exists in extracted_features (robustness)
-             if (data.extracted_features.hasOwnProperty(index.toString())) {
-                 featuresByPrompt[prompt] = data.extracted_features[index.toString()];
-             } else {
-                 featuresByPrompt[prompt] = {}; // No features found for this prompt
-                 console.warn(`No extracted features found for prompt index ${index}`);
-             }
-         });
+        
+        // Map features from the combined prompts structure
+        data.prompts.forEach((promptObj) => {
+          console.log(`Mapping features for prompt: "${promptObj.text}"`);
+          console.log('Features object:', promptObj.features);
+          // Store features using the prompt text as the key
+          featuresByPrompt[promptObj.text] = promptObj.features || {};
+        });
+
+        console.log('Final mapped features by prompt:', featuresByPrompt);
         setExtractedFeatures(featuresByPrompt);
 
         // Clear selections after successful generation, as feedback has been processed for this round
@@ -174,7 +183,12 @@ function App() {
 
       } else {
         // Handle cases where backend response format is unexpected
-        throw new Error('Invalid response format: Missing results, prompts, or extracted_features in backend response.');
+        console.error('Invalid response format:', {
+          hasResults: !!data.results,
+          hasPrompts: !!data.prompts,
+          data: data
+        });
+        throw new Error('Invalid response format: Missing results or prompts in backend response.');
       }
     } catch (err) {
       console.error('Error details:', err);
@@ -257,38 +271,40 @@ function App() {
 
         {results.length > 0 && (
           <div className="gallery">
-            {results.map((item, index) => (
-              <div 
-                key={index} 
-                className={`gallery-item ${selectedImages.includes(item.prompt) ? 'selected' : ''}`}
-              >
-                <div className="image-container" onClick={() => handleImageSelect(item.prompt)}>
-                  <img 
-                    src={item.url}
-                    alt={`Generated image ${index + 1}`}
-                    onError={(e) => {
-                      console.error('Image failed to load:', `Index ${index}`, item.prompt, e);
-                      // Optionally set a fallback image or remove the item
-                      e.target.onerror = null; // Prevent infinite loops
-                      e.target.src="/fallback-image.png"; // Provide a path to a local fallback image if you have one
-                       // Or hide the image container/item:
-                       // e.target.parentElement.style.display = 'none';
-                    }}
-                  />
-                  {selectedImages.includes(item.prompt) && (
-                    <div className="selected-indicator">✓</div>
-                  )}
-                </div>
-                <div className="prompt-text">
-                  <HighlightedPrompt
+            {results.map((item, index) => {
+              console.log(`Rendering result ${index}:`, item);
+              console.log('Looking up features for prompt:', item.prompt);
+              console.log('Available features:', extractedFeatures[item.prompt]);
+              return (
+                <div 
+                  key={index} 
+                  className={`gallery-item ${selectedImages.includes(item.prompt) ? 'selected' : ''}`}
+                >
+                  <div className="image-container" onClick={() => handleImageSelect(item.prompt)}>
+                    <img 
+                      src={item.url}
+                      alt={`Generated image ${index + 1}`}
+                      onError={(e) => {
+                        console.error('Image failed to load:', `Index ${index}`, item.prompt, e);
+                        e.target.onerror = null;
+                        e.target.src="/fallback-image.png";
+                      }}
+                    />
+                    {selectedImages.includes(item.prompt) && (
+                      <div className="selected-indicator">✓</div>
+                    )}
+                  </div>
+                  <div className="prompt-text">
+                    <HighlightedPrompt
                       prompt={item.prompt}
                       features={extractedFeatures[item.prompt]}
                       selectedKeywords={selectedKeywords}
                       onFeatureSelect={handleFeatureSelect}
-                  />
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </main>

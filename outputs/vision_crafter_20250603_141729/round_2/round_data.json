@@ -1,0 +1,216 @@
+{
+  "round": 2,
+  "timestamp": "20250603_141806",
+  "generations": [
+    {
+      "prompt": "1. \"A classic Japanese woodblock print style image of a serene white cat napping on a sturdy cherry blossom tree branch, surrounded by cascading white cherry blossoms and soft petals.\"",
+      "features": {
+        "style": [
+          "Japanese woodblock print",
+          "classic"
+        ],
+        "subject": [
+          "serene white cat"
+        ],
+        "action": [
+          "napping"
+        ],
+        "objects": [
+          "cherry blossom tree branch",
+          "cascading white cherry blossoms",
+          "soft petals"
+        ],
+        "setting": [
+          "tree branch"
+        ],
+        "colors": [
+          "white"
+        ],
+        "mood": [
+          "serene"
+        ],
+        "details": [
+          "sturdy branch",
+          "cascading blossoms"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_141729/round_2/image_1.png",
+      "image_url": "https://api.together.ai/imgproxy/JwFEzsveaNyudAXTGfuQ9ViSYV7Y5lETo0qdD9zwdEA/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzU3MWExZDljMGZhMGZmY2RmYzA3NjMzMmE4MDM1ZGIwZjI2OGE5NWI1ZjBkZDc4MmYzMjk1YzJkYTdlYTk3OTM_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0REWEdZVEdLJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIxMTgwNlomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKR01FUUNJRk5EdDJxalhxQzJqcHJGQUEwOWVEOXd0YWtnUnlpYUNhJTJGJTJCSGswcjglMkJqb0FpQTM0blk1WjlRTVdZNUljU1hCOVZ5YWtHVnJJTTNkRmJGUlM0bnZXcUVORXlxUUJRZ2VFQUFhRERVNU9EY3lOakUyTXpjNE1DSU0zQlg4azZCSEt6M0hRRUtPS3UwRTd5UHRPd0Q4MmUlMkJKRkcydCUyQkJYSUhKSDJndVZ6OWNsdFolMkZJd2JtWU5MdWZaaEZwdTNKdjEwcVZBTkV0JTJCdDZLS1JnTiUyRmVGd04zRTJjcklTMllhZFc0JTJGQjVLSnhlNWxFT3FTbTRUUHJqTXdlMWRZJTJCYXlMa3dwbmNRNm0wbTB4VmRlR3VCTXpGYUlFcDdHYmJHeVcyNlI2T3BNQ20zeVdOcTJLRFczVCUyRlFhREJXVCUyRjI2M1FUblpFbFFYaCUyQnRLTWYlMkY0VSUyRktSaEZOcTVlVmw0UlJlUFUzblNKTExBJTJCJTJCVXhFUmVoY3BDS2pDR2N4VmlOREtnUm9QMmdNVmpiYWlmdm5oRTVBaloyd245c0F0MnpudFd5eXJuMSUyRnhhUiUyRkVwSDVTYUNObkhrNyUyQjIySGNDdWoxSjYlMkJ5bXdKaVA5U3AlMkJJeUNDV003JTJGa3o5bDlsanQzbktmUWRWUFVIYk9JcEFZaUFQVzQlMkZlTEV2ZnhPYnlwdzNSMm5haG94MVdsRHB5SmhUR0FOZFkzdzR1b1ptZHZvRXlvTDBTTjZyNzFvQkclMkZuV3JNREk3OVdPRURoSTRPTlBHQjl4MGZteUJ0ZWViWk4lMkYyVVVYODNYRlZaajlzRXJEYTV0bzRrYjI3UDNSU3BTNkI0MW0zYXkxdzFnb0VlJTJCUDJ1MldnRmtJN0M4VHFueGxzdEdUeUJGMUNTTkNPTjE4aVZuY3UzZG9FYzUzQVU4NHFsbkl4ZTg2Y0V4MXE4WmZaRXVZNHNGMWF6RFlIUXJOdFQzQ3R1ck94V3NUOSUyRlJoV0xwVTI3YTZlQmNzWm8wWGQ3WU92M2hGWEo3a0ZZUWxUZTk5YSUyQlNIeW4wT3BSaG1ya1ZtdHl1QlpQJTJCd1pMUDQ4SDd3QzlFR3ElMkY5Ykh3MHpTbXZtdjJzRWMlMkJNWWhsallDNFI5WXZpZFhjOU1xZkhnJTJGRng2JTJGeEtSWHc0T0dRUXFYNUhWaGhsVVBLYmFzcnU0ZGI2elFHUVNCVkdkd0U4TG1qcFptbGRRMlZ1SjIwaTNTJTJGbXlXMjFyVWQxRUdEbWZPSTk0NEFLRjJsMWp5Y2lodUNWRUF4SW5EWURkNUZISEdLOHMlMkI4MlR5V0k4WU1JM04lMkZjRUdPcHdCb0dXaE9jZEs0QmFqY25qMTRVSlpGRGVEcTFDcDZZNm85VnB2NTQ1TkhzMmxHTlNKVDVNQ2RZdTVhciUyQkMxaHdocEwza0ZZSWxLbUJFM3ZnJTJCMng0SzZZVUlnaW8wUEVSJTJGV2c4ZmpTTFdEMTV1clVQTkNuQ1JmNERJSSUyQlVpUHplQXFkZjZhNmtpRDRDbGllaDJ3THlqamJYRVhyVElhZ2ZGSzZEajNhJTJCQzU4d3ZSaVlSdm1ZdjJEdGpKUmZyakRBVU8lMkYlMkJ3VFlPJTJCalgzdiUyRmh4TSZYLUFtei1TaWduYXR1cmU9MGQ1YmNjYTY2MWNjYjBjMjM1NWE0ZmVlNDM4NTRmMmY1YzgyOTQzNzczMTcyMzI1ZWFhZTlmMmYwNjM5NTFhMSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmeC1pZD1HZXRPYmplY3Q"
+    },
+    {
+      "prompt": "2. \"An impressionistic painting of an angelic white cat slumbering peacefully on the thick branch of a cherry blossom tree in full bloom, with clusters of delicate white blossoms all around.\"",
+      "features": {
+        "style": [
+          "impressionistic"
+        ],
+        "subject": [
+          "angelic white cat"
+        ],
+        "action": [
+          "slumbering peacefully"
+        ],
+        "objects": [
+          "thick branch",
+          "clusters of delicate white blossoms"
+        ],
+        "setting": [
+          "cherry blossom tree in full bloom"
+        ],
+        "colors": [
+          "white"
+        ],
+        "mood": [
+          "peaceful"
+        ],
+        "details": [
+          "clusters of blossoms"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_141729/round_2/image_2.png",
+      "image_url": "https://api.together.ai/imgproxy/2MbAGzOQghZbv8FJNCwAcmdz2dz9_eSYsOHAcNxtxHg/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzNlY2NhM2RlMjI3NzU5NzgwZjNmODg5MDYwNmM0ODFhMTljMmQ0NDVjMjczMGUwY2Q5MGFlOGFhMDU5NGM1NmE_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0FNTU5WMlZNJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIxMTgwNlomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSU1FWUNJUUN6WGR5azlldiUyQnhYWW1LQ1lEYzFGTklXb1lFcnJ0N0RPOWlHOFRiUTBQZ3dJaEFOVW1jQ1o4RGNTY0k4VnFPVUVXQXZ6T1plQWc5d2dzOFZXb2dmWlhGUU1LS3BBRkNCNFFBQm9NTlRrNE56STJNVFl6Tnpnd0lnd0h5RUlxczZvQmZuNWhJeFlxN1FSRktDWTUxbnRyUFRDNWVNc2ZqeiUyQmtlUGwzc3VneHhOUGYyRjlJY2NxamRSbEM1dmFUVmNtRSUyRmtqbWVDNCUyRjR1bGZLWkI0elE4VXVneFJubU04blQ4dUtLZCUyQiUyQjJOTUdnRDVRMnRzJTJGVVclMkJmM2t3MXd2NlFYeGxnU0dLVHI1aWR5OEw4SFg3TUR3akRjQlBBbVc5bVprMHdGVVBMdjJGOG9nVk1aUGJQbndLV3lxdWF5cWZ1bGczck9SSzl3bkxIN2YlMkJJJTJCUVVBcHRnd3Bvb0dDdWxJRURDdlBKeTROUXg4NjBLQkxOJTJGMHo4R3ZPVlBidURCS3FZbVlmWFMydUFUQTZVRzI4b01yaTNXY2wlMkZoUUp3aUs4RFJ5VWxVSU1WRnVmN1p5WSUyQmxSVnlPb2VKRWMzRElnaWFmSmhyZGV0UWJMUFlIN1V0S25MJTJGN2xGZiUyRjcwWG9lRTglMkZTZVg4b0RDNXlIeFRXcGxLTnJYUllyTlVFVDZIaFZRRzY5RlFRaUlrNUxpJTJCSDFvM3I5cVdYOEM5TGw0ZnJuaGN6Uk9sMWVVdTR2ZGlXWFFqMWZNTDhyOVh0UXp2STVqOUhOJTJCWCUyRjNGSDJ5WXVYJTJCeFQyeUl0cUwlMkZTaVlHZGx6SkRjSWVxUGhRNkg2aTVsekFTMGhZSlA4VFJkcEF1Zk1zV1J6SWJ6QktaSFhXSzZsR05mb2hoeFI0WSUyQkZRWXdEYXNPRWFRRmE4TjYyN2dFa3pyZ0QlMkJyJTJCTzZkaHY5cURiaTBUZnBlaHVFc0g4T3RFUWhJTWxZdllwaWRJbVpLZ01TOHpWQnZWTCUyQm4lMkYzJTJGc3RCUEw4NTdBTUQzMjAyVDNSRlNoRGY2WFpEeFg0M0xrV1hXTHdER01yeVBJendsZmo4UHVlJTJCZEY4RlZZJTJGUU52Y3NSMm1wbGhwcm5uc1dwSHRZQ1hBeUtPT0JKVTdYekZEUzBnaE11YSUyRnpoSGVDOGFISEJpMDFmZmNEYzlTVyUyQlM4ckZSUmVBTXFRbTlTY3MzVk5DRkhKVml0QmczaUhqRGNHYXloWE9xZnZhcjZiTk8lMkJGR2glMkY4UTZYV0NjdERuOFlwUHNTaGFWSkpWcnJCcG11bFR0cjhsQlo2SXdqYzM5d1FZNm1nSFBRYXo5TGxVMVNxSWNnTzJlakExcUN6MFRTMG9WdFk4MHlXbElsTUtVMExmM1dnNmQxZ21IMnR2JTJCaTYzOGFXWDZBakNGbHZNRHVMcExWVHFMRGk5NGlaZG1VenR6JTJGcXIwTiUyQmFkUkxuNDNoa2M3bUc0JTJGJTJCNUJiTGslMkZ5UGQyQjc5ZThFZWNtJTJCOXdORHVwaEdSOCUyRjFTTjRTanJFcU85TGd4eGJHUThGYld4VEpPeWJuYURYamMzMWJ2MmlHcnUzV3ZGOCUyRjAyMmd0RTNEY3cmWC1BbXotU2lnbmF0dXJlPTNmNTQzZDNhNTAzOTNmMGYzZGJhYWQzMjc0NjEyNzJhZGExMGY2OTYzZTMxMWRjNjBjNDBhOWZkNmUyMTg1OTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JngtaWQ9R2V0T2JqZWN0"
+    },
+    {
+      "prompt": "3. \"A vivid pop art representation of a monochrome white cat comfortably sleeping on a sturdy branch under a flamboyant cherry blossom tree showering down radiant white petals.\"",
+      "features": {
+        "style": [
+          "pop art",
+          "vivid"
+        ],
+        "subject": [
+          "monochrome white cat"
+        ],
+        "action": [
+          "comfortably sleeping"
+        ],
+        "objects": [
+          "sturdy branch",
+          "flamboyant cherry blossom tree",
+          "radiant white petals"
+        ],
+        "setting": [
+          "under a cherry blossom tree"
+        ],
+        "colors": [
+          "monochrome",
+          "radiant white"
+        ],
+        "mood": [
+          "comfortable"
+        ],
+        "details": [
+          "flamboyant tree",
+          "radiant petals"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_141729/round_2/image_3.png",
+      "image_url": "https://api.together.ai/imgproxy/nES9AAMpjHX0P8ctykfqIZQMrl_lGXi09VzH1t3RzyA/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzhmZjU0ODVmODk1MmIwMDA2OTNmMzU4MTAxNmNiMWM4YzNkODk2OGUyNGIxMTIyYWY5OGJiYjdlNzdiYTliODQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0NTQlFCWkxNJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIxMTgwNlomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSE1FVUNJUUQ4UlEzMm5xdTZnNUxidE93aUFCMEVTUUo2enNuRCUyRjRzRmhIS0hBcU1VS0FJZ0tQZVVta3Nya1c4diUyRlQ4UzZvTzVVSmZYbWlKT2VuM3Q1VzFCSjF0S0VaTXFrQVVJSGhBQUdndzFPVGczTWpZeE5qTTNPREFpREdYQ01JQzVHNVZYenpJYzdDcnRCTlMzZkExSGVsS3ZLJTJGTFBwaWlFSFJCdXBCdXl3UjNjM2pwVTE1ZjBHUVd4aGlKZTl4N1FTanJLJTJCUkxIS3hDOGhsUTVwMzhTJTJCQmROeXp1VnNydENBenlGM0Y4Y2g4Mmc3Q3k2VmhzSHZVb05yWWVoa0k3R3Y5TDVWdUZNc2xxQ3ZhcWNoY2Vwem02biUyRllldzlMRnFVSW1BenNkSWE0eEp0c2dMNHhjRXhHV2lWSVY1YWdRQnVZbnBFWGk2NW5FRkRUUUdOZTBjNmtaamhqdVBHWXFWSjFvVUZ4YUlnbkk5bFNMMUpwb3k2JTJGU2xJc3Zzb1JWclJSYUF1VEg2bUJBNG9Md2RuOWlydmRIQWdzRVh5Z1hwVlNvcEVXVzRZYTdMS1ZJTGM1SDY5dVpIdHQlMkZKU3UwRjQ2ZEVyTVQ3OWltVkV1NEpTMllYUUxtZzZzJTJCNkZsNHBuYWwxRUVaMFp3R1dJMnZ2VWpSMklNdVAwMTQxVTV5RlBSV1FnbFlDdFZDN2lIJTJCS1o0dFdBUmRiQ3UlMkJ6RWNoYmdQNExXVVMxZDU5dElubVhZUFJIeE81VDlncWJ4M3JSTnh1WGhpN0klMkJsaCUyQjYlMkJUSjhWak1TYnJlOHhpbVdYUnVxVUJOYVF6S2RhV3dmaDgzakIxaFJTSWJxQWM0UEU2bHQ4NjlUZ0lSUnFNUXlIR1hadzlQU1hpdGRHRiUyQjZUY2dTbGpWUW1QcFZJRlZYc1VNYUUlMkZoTTFWT0RvVUdIQk9Zald1U1EwakFQM0ROeWp2eHRNV2VXTU1rQ3pCd2w1VEUwakYlMkJ3dllaNkp5Z1ZRcUYlMkJCSzJ4Q2NFb0JhQlVLVnVTeTZzcmpOdUwlMkZkVWNucU1IaXZoNDBRWVFmeDNrODRMaHhsZ1NVVlhjYm1XT3VYT0JmVVZqNjdIZElhJTJGVGtWRjF0ZGI1cVBCWU5nc09LRUlnblZDd1VydiUyQmpsdG1jajR3aXklMkZKNFJrOVpPM2h4R2d6QnVNRm5VNjByciUyRkclMkZrR05MWGRSanYlMkJmRFVKSWcycnR5dmY3aFFCWmpYJTJCTGhVJTJGRjlQbXJxcllYQ3N3Q2k2WkZzNUs5UzdSYUNjbmhrSmdQJTJCa2JGSW1tbURDTnpmM0JCanFiQWNyV2ZkbDRma3RLbk1kNG4zV1pNZkFiSlF3TktGaTl6Q0FUMlRueWt4QVlvclNlVVJ0QTNZZ0VydmNwbXBIUXBJMVpKRHpVd3hKdEQxREFPRTlUbE52S2szUVBrZ1g0bnBvZVFCUFU1MHdNejk1M0lMbXBvaHZZZUxZTGdtVTVkOW54MmloTHBOR0QxT2NWb0lIYkxjbGROTUVvMSUyQlNiZjNhUkowNng0JTJGNyUyQjQlMkJSbks3OW9vUk5TR3BPdG1YVU1oVnp0T2sxWlBBY2FQTXljJlgtQW16LVNpZ25hdHVyZT1hNTFiYTQxMWVjMGYxMDA5YmQzMTYzZDQ3NmIzNmRkMzEyMmZjNDQwODZjNjZmYmM5Nzk3MWMzYTJjNDdhYzk5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ4LWlkPUdldE9iamVjdA"
+    },
+    {
+      "prompt": "4. \"A cubist style rendering showing different perspectives at once, featuring an ivory furred cat curled up soundly on the strong bough beneath the canopy of dazzling white cherry blossoms.\"",
+      "features": {
+        "style": [
+          "cubist"
+        ],
+        "subject": [
+          "ivory furred cat"
+        ],
+        "action": [
+          "curled up soundly"
+        ],
+        "objects": [
+          "strong bough",
+          "dazzling white cherry blossoms"
+        ],
+        "setting": [
+          "beneath the canopy"
+        ],
+        "colors": [
+          "ivory",
+          "dazzling white"
+        ],
+        "mood": [
+          "soundly"
+        ],
+        "details": [
+          "different perspectives",
+          "canopy of blossoms"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_141729/round_2/image_4.png",
+      "image_url": "https://api.together.ai/imgproxy/s5A3MidUyRMelOS1WMHqaw2EgIbOfSbJQQyvRMkEpys/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzL2Q2YzFlNDUzOTc3YjVhNzVhZGJhMjk0Yzc3MDU5ZWNjYWIyYjdjN2VmMjExNWExZTA3NWE5Mzg0NTY1NTlmMjQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0ZPRlA2T0JIJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIxMTgwNlomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSE1FVUNJRmZicyUyRlpDN2sySDQwR0pZJTJGczhQUFUzMmRHTWM1SERwY2dpeVpBNnI2RFJBaUVBaVdtZjIxYThWRFNQaXdRTWNqUE9NMlhxaFNpaTUlMkI5QVc1TlRZREN0NkxZcWtBVUlIaEFBR2d3MU9UZzNNall4TmpNM09EQWlES0QzajBkdWlJVmk2SHZ5V0NydEJDaHI0alFmNDhRM1k2WSUyQko2YldQT0FxWFg3eSUyQklUbnpKN2MlMkI0eGxNSlpmejRtJTJGWFZPbU5IVkIlMkZwbmpXUUdnbzU0N2w3RyUyRjB1NiUyQnNlQ0RXSVF6WU9UcSUyQlBISyUyRmNGR3BERldsVEI4ZzZvZjhZeSUyQlVWTFNTSEN5cE5iWmhDdlZ0aTQ4TDdJTiUyRkJRY0ZwNUtLRW1tTVBCZW4wSDd6SWs4UzkwTHJOWkUwckpNOWUyakFWWDRaNnNXWEM2eEpHNnVzJTJCazA2Zkd2djhjazJwMUVyejQ3bXRCNkglMkZrYiUyQmlwSDZLMEhZRHdlT0d0VFNsWjc2RW5wTnNVNHJQbmdGVGliUnlWJTJGc1BzeTlCQnh0SzR6S1dxUXM5V3VVWDNuemp4ZktzSExzS1NVdTl1bTclMkJQNkFXNTdKTkpjNWU1bTZLUzB0WTZPOSUyQjN5UVdpUk5TWnQzbVkwSGs1WVd5ZFBPVVRVS3JtTnlYYXJ4c04xSnk1Z2hSdW52Y3VxT2dUcTVQcGZ1MjZxU1RJaTFGRTdyJTJGQnoyUktCT2lyR1NRSnVLYUlZWEVjY0JOSnBSRmlyYm1KNU12JTJGd3FWSzVLRHZCOEIxaEFEZkh0WU5jdmZDMXhIQ084N0JwRTE1SkpkMWhSSHVncVZhWjRhTG1VcVgzOFdhQkg4NkZENG10VlE4eGpGQlBnbEU5cVVyVUtxZXYwM1Z1S1NCeFltb3hyT0FiaW1tTmFyQm56dHlEMlltTDlWVUtlVHdPbVFiSnVCckJHZCUyRjNvMzUlMkJMWGZWc2d2ZHlYNiUyQmIlMkI5dWJaaU15b3V5TThrNVNtSnU5N0VNYXV1bWtxNkRPWlJNczhPV3FwNVlKcTZadVg0c1ZuNmtibHc5UURZUUtkZW9WZGI5VE54JTJGTUNxQUhIZEVXRWhPNk9RZmsyS2JsaURKRCUyQmM2dE9QaUVhQ0s5aGpURnk1dVVzTGltQ3N1amZZSHM0eWJEbFJVMFlEbE1yTURmSGlBVG54UjVkdzhBdHhkNFJ5WkV4YnZZYVFoaEMlMkY1NGFxRExnV1RBbVBTaldKc3lKUGdIb2RoanhUNjd3VXowOFVRWFc2TlF0M0ExVTQ1MmxaVENrc2NoekNOemYzQkJqcWJBZWVGTWxtb0VwUEszcjZ0eHRTc1V3aUdibWo5VHMyQjBKWCUyRndnUnZTbFNkclZYSzJaQTEzOFglMkZ0QnJySGpYWFE2YkRGdndWSlZoeGhseUt6QmhHTVloa0lVdEVOOFVMWG1zaERCZnAlMkJybzJwNHplV1lISGtsNTV5YzdReWVZWFFBVjIlMkJtJTJGVUhmc1NPMEZPeW9vTU9BMkZpeHFJUUVoQzlveUNCWFB6cXdiYmJzUlozNlhtMk43N3kwckJDSFpRQ0FkMTlIYmpycXdxUGclMkJjJlgtQW16LVNpZ25hdHVyZT0wNzkwMmNiNzhkYWNmYzIzZmRiOGNkZDM0MzhmODMyMzI2NjQ4MTE1NzIwZDYwMGE4NDBiNDMxOWM5ZmI0NzdhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ4LWlkPUdldE9iamVjdA"
+    },
+    {
+      "prompt": "5. \"A vintage sepia-toned photograph-like image depicting an elegant white kitty in deep sleep atop a burly branch, underneath an aged but still splendid cherry blossom tree flourishing with alabaster blooms.\"",
+      "features": {
+        "style": [
+          "vintage",
+          "sepia-toned",
+          "photograph-like"
+        ],
+        "subject": [
+          "elegant white kitty"
+        ],
+        "action": [
+          "in deep sleep"
+        ],
+        "objects": [
+          "burly branch",
+          "aged cherry blossom tree",
+          "alabaster blooms"
+        ],
+        "setting": [
+          "underneath a cherry blossom tree"
+        ],
+        "colors": [
+          "sepia",
+          "alabaster"
+        ],
+        "mood": [
+          "elegant"
+        ],
+        "details": [
+          "aged but splendid tree",
+          "flourishing blooms"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_141729/round_2/image_5.png",
+      "image_url": "https://api.together.ai/imgproxy/L06b3LskrSr3rXd_dF891Kxo23ngt55-iFfBJoSkkak/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzBlNDVlMTlmNWEyZTQxOGExZjkwNjM2Yzk5Y2E1NTkyMGY3ODc4NmE1YmZlNjQxMjRhMDVjNGQ5ZDdlNWY0NmQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0pTV1RWT05KJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIxMTgwNlomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKR01FUUNJRURJdW5IV1VVanEyQTBkUUhKUyUyRkFHTU03N0pCR0dTRkIzSVdIVmZlUFB1QWlBcTdLYjdkWjdmVjBqd2VnZFU0N0I3MkZ4WUY5YkNXRHBzRUpQT3FpcWRzU3FRQlFnZUVBQWFERFU1T0RjeU5qRTJNemM0TUNJTUNDZ1p6NlZMUXhoQmp3bHJLdTBFN1FwV0d5V3lJRUF1U2hmMzAyOTNjYThCYWx1NG5zdFJ4cXRPQVFTRHRyZVgyZXI4dThiVFpjN05IQlVsVjExdFQlMkJJZWdwYjNncERvJTJGNkcySE1ma29KSFhocUFaTlVnN2FxUVNDTGtMZXJkYzBHVW1BYzUyRXdkdkVoUzRNV1gxRlZwRFE1OCUyQjRhSkdCeDBCa3ZNQTd3ZFk5ekN5bXNmUVBoZkxtd1h5Mnc4QU5xUE4lMkZBNVQ4JTJGMTlFSWtQQmwlMkZKem5mbzRPMjRFJTJCWDF0d0VaQXJRUHdsZG55UE0zTGpUdnc5azZjbWg4cTFYQVR6WFpxZ3lLYjJ6OXk1aHBueDY0dWc2UmtDWXYlMkJzV01RdGZoS01tYW1IYW5hU0lWbVJYYkdBZ3l0SzJHU3FQb2RQODlWNTkzSzAlMkZwQWFjd1hVNWM5YjR4UkdJQUc5YThoQ1ZSeTVROFpON0FqdDZxNTFDd29ZSWloOTlaQ2NYUSUyQnpjWEEwQmFuQWpMWEl0dUZVdnVMWHVoQ0JETlI5RmtMaFM5bnhoZTJ6cEpCUkxDVmxBbmlBeHVxd1A0T0JEbHUlMkJ2OTlhQ0VBcEY3MSUyRiUyQnlQczV6QWlvMzFGb3FFRE82V1lyZ21JeUNsQ1hYUTNISW80MmhiMkRaNVhPQXhVeWI4QVNjbW5xNmJqRU1RcUdWNEY0V0ppTWdJdHZqTjN0JTJGSXphcDdXd0FsQkVUUXZJYVElMkZFUW5SRVdjekc5aVRydVo2JTJGV0JsU052WUN3b3ZsS3ZuREM0Zjl6bkU2WEFxUzN1TVAxa0lnJTJCN29Hc2ZPa2RKQ1dGN3YlMkZGYk0lMkYwallxUzVWdk5haVFJSyUyQmxlUzRqSFpIblVpMU9Vb2VEVUljUDBuYTY3QkFQRERnR3duNUhhWnRpWHZFamlIYkZVUFoycnNTRjJWTHUlMkZlSnV5OHp3eU5CakNKZmc0d3huUWFCakNsdDB2JTJGNlBGY09sUVQ0WXVIUjBzaHExV2ElMkZSa040M0d1QjN5NG9WSlRMQnRUb2cxcTA0VDk3QiUyRmsxa2dDVVZaRGFsa0ZKaGFZQWEyY0RXMU1JUGxFRk1mMGN5ck5HNkdaQzlNVmlVcXBkcHB0eGIlMkJNSTdOJTJGY0VHT3B3QnhPVnQ1ZkJnZEsxdGQlMkZwUzZaTGk4ZFVRWlQzUGo2MllzRGZZQzViMHF3OGhDT1NqaENUNjZPdDNzUmxiNXVyc20zR3klMkZINDliVXN6a1RvTTdldmN2c2Y5d29NelBTZkJhWXRHRjl0JTJGVyUyQmdVSkdLdjYybk9yeU1Od3liNjBZUUFsZ0haVGJjekU2ZVBQN2JTR3haelhheE5jTzZVYVp4JTJCYm9mWEtuTXBHRGd0OTg3RnR2MmtLJTJCelhmakg0cjNoR0NwUUpOSXVxa0gzYkl5SG8mWC1BbXotU2lnbmF0dXJlPWUxNzM4ODU2NjA2OWM2NDhkNDQ5ZmFmYjZmYjIyMTcwNmFjODBjYjJlNDk0MGM4ZDg1ZmI2M2Y5NzMxNDllN2QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JngtaWQ9R2V0T2JqZWN0"
+    },
+    {
+      "prompt": "6. \"An Art Nouveau illustration that captures the graceful curves and symmetrical patterns, presenting an ethereal porcelain-white cat resting blissfully under the mesmerizing umbrella of blooming snow-white cherry blossoms.\"",
+      "features": {
+        "style": [
+          "Art Nouveau",
+          "graceful curves",
+          "symmetrical patterns"
+        ],
+        "subject": [
+          "ethereal porcelain-white cat"
+        ],
+        "action": [
+          "resting blissfully"
+        ],
+        "objects": [
+          "umbrella of blooming snow-white cherry blossoms"
+        ],
+        "setting": [
+          "under the umbrella of blossoms"
+        ],
+        "colors": [
+          "porcelain-white",
+          "snow-white"
+        ],
+        "mood": [
+          "ethereal",
+          "blissful"
+        ],
+        "details": [
+          "graceful curves",
+          "symmetrical patterns"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_141729/round_2/image_6.png",
+      "image_url": "https://api.together.ai/imgproxy/iuGJvP62bn-DL_0DQCA_GbvUMd4ieO-gutGCJkRYahw/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzhjM2FkMTAwZDgwMjNkNjNlZjkwYWVhODU4MjA1MzBjOTUwZDA1YzNkNGU3MTJhMGRmZmU4MjdjNjZiM2VjYzc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0hYU0dEWDJSJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIxMTgwNlomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSE1FVUNJUUNJdSUyRkVSJTJCM0FvRSUyQk85S0FsU1BuSSUyRkFaeGFGQUYxV0xla0dPVFB4YkdXRGdJZ2Z1SnRRYkNWbTJ0QUJiUDZWWCUyQmEwUkZDRDdYRWJ6cU5Nb3JqSGNTUFRGa3FrQVVJSGhBQUdndzFPVGczTWpZeE5qTTNPREFpRE9wN1ZZZjBGY25IdUdmbzR5cnRCQk0zSVNrZ0s3MXFDWkNjRWZUM2w4MngxUlFYNnglMkJKWUdRZWVPMEI2bk5rODRacmUlMkJiTUs3VEVOaGFqRzI5M25TbHd3VXpzZFgzUDRZUXpVaUNuN1dEVlZ5UGo0am1WaGpNN1ZhYUlIcHRGSTZGcHB5enZITSUyRmRGTG1JQzlMd1M4Zm5HTE01bXd4WEhsMlpoUWtIJTJCWVYxTGQ0WmE4THpZS2FSd1Q0MWdCMmRiTTliZm5sWXd5YnhBMTRNN3dwa2VFbVlvcWZFeXdGNWpJZXdzdTJzV2xLQXNGeVMzS0w2Q3o5ejdKSnFDYW5VRWtpS2JWQUZkeDNPcmVFSGxTUkxmdWsxbVhYanlaNUElMkZQUENIUm9XJTJCVVE1VFBlJTJCeDdjTnUxVWFVaEM3UkpxSElPMWhuUm1WOUd2cXZXMUhTU0c5NTUlMkZlb3ZMbmN4JTJGZEQlMkJ6aSUyQkYyeGpDQm5oN1olMkJRZlAxR3dHNmNvMnJlYXVqVlJ6JTJCb0VIdGVUMlQlMkYlMkJ3WUVxV1RWQiUyRm9WZDVLNHYycnRSVkx2SkhIWiUyRlclMkJXU3N1RnUxTVNNMUdQcmNtV0tsNmFYZ1RaMiUyRkhqOWZyRGNpMVBTY0Z1MEFQM05tJTJGbVVqbGF4OCUyQiUyQjZlMnAlMkJEcXpPJTJCMmFEJTJCVDBTMGJxTlN2dkU2UDdHbTBPMnN2OWRyWHN1bTAzcCUyQlI3ZEIlMkZrR25DaVBBZmZqcFpiUGUzZ3U4ZExsWDRpQXNqT3BTR0N5dlY3NHZxTkxmWnRtTWN0OEQzUFVucXJFJTJCQTJGakRybzZDQ2JyWE1wTmhtRndEJTJGN00lMkJubGtNWmNjRjM0TmdEZDBIczYyaiUyRlAzbFJnRDZBc1owJTJCOGwzajNET0M1c2lmNVZIYkVFaTNYSVFBRyUyQm5nb3h0OGVablp1T09TTG1lVDlyJTJGcDVzVGZ1eXZFQnElMkZ5aXpvRHhJMEVpZW1XM2JJMnl1V3RSdjlOUyUyQlE0MVpyQ3UlMkZmVUt6Z1NrcVJXbmxhdUVPZFNRazNrbGZKM0Rkdlo1Umh3ZHU3MzVCUHI3ZjNmYWZ5WUtIbHBhcTBNa3N5SmhvUEJvSkpNN04yMk41QTQ0SW43VDJsJTJCdnVmaHZ5NmlIWXJFQ1ZPM3pDTnpmM0JCanFiQVklMkZDZUJlbWlFY3JhaXhhNHZoV3RrQ3NZMXNhdFolMkZiQXFZNHBnNTNPVW9BMlF4WEFHdmQlMkIxdm01RHZPYUNsbzdnaCUyQkxCaGY5UmNoaFluckdOMmVxWk9mSWpJc1djenZTaU5SJTJGeDV5Y2ZlMllsJTJCRmF0RW1nTWoxazBDQlhwRzlxcyUyQmNENGZxT2MlMkYlMkZvMnR0ZnJNQTg2YiUyRnhBSUJrM09SM1dTaWIxcGVhVUZ5ZldkZG5NM2NaeFV0clp0ekpkWWlMN21peU9PN2FQJTJGUENhTVMmWC1BbXotU2lnbmF0dXJlPTY5MjNmNDMyNDczZTE3YmMzYWRkMWE1OTBiOGYzNmQ5MTQ5NGMzMWRjMzg1MDI1Zjg3NGNkZjI5MTNhNjY0YzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JngtaWQ9R2V0T2JqZWN0"
+    }
+  ]
+}

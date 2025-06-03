@@ -1,0 +1,233 @@
+{
+  "round": 5,
+  "timestamp": "20250603_150459",
+  "generations": [
+    {
+      "prompt": "1. \"Illustrate an intense moment from a co-ed beach volleyball game on a sunlit university campus. The scene involves four students - two men and two women, where one woman in vibrant attire spikes the ball onto her male opponent's head. To the left is an antique-looking University Tower, and to the right lies a bustling Football Stadium, all under an expansive sky filled with fluffy white clouds.\"",
+      "features": {
+        "style": [
+          "illustrative",
+          "intense"
+        ],
+        "subject": [
+          "co-ed beach volleyball game",
+          "students"
+        ],
+        "action": [
+          "woman spikes ball"
+        ],
+        "objects": [
+          "volleyball",
+          "University Tower",
+          "Football Stadium"
+        ],
+        "setting": [
+          "sunlit university campus"
+        ],
+        "colors": [
+          "vibrant attire",
+          "fluffy white clouds"
+        ],
+        "time": [
+          "daytime"
+        ],
+        "mood": [
+          "intense",
+          "competitive"
+        ],
+        "details": [
+          "antique-looking University Tower",
+          "expansive sky"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_145953/round_5/image_1.png",
+      "image_url": "https://api.together.ai/imgproxy/f00xW_s5vrebsO5oQUEgkFf8v1BmGSsciEEu2rjwx-A/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzL2RlZmZjZDliZDMzNTdlN2U5MWQ3MDQ3MjVhZjI2Nzg2NGMzZGEyZDQzY2EwNzE1MjUyNDYzMGFiYmU5ZmYzODQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0Q2RUtBRU8zJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIyMDQ1OVomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKR01FUUNJQ2lrSjZtQ0VTNVJlQmRZYUtDYTNSNHplWWUlMkYlMkZud3pXM1FtWndkWlFyJTJCMEFpQVkzdGhidktBNUN6N0UzZSUyRjZ6aDBTWTk4VkhYMXhpczRVWVhyNDZrVkklMkZTcVFCUWdmRUFBYUREVTVPRGN5TmpFMk16YzRNQ0lNdmt1VTZkTklxcUp1M2pSN0t1MEVkRHBGMkFCQWdoUVY2aTN1WU1IV2MlMkJhd3clMkJaenhkYSUyRmYxeUdycG5yWVBuMDRLWUpna3UlMkJabU5VVldNTHkwaTA2cHRCZ0RycVA1cGNHWFJoVzV3ejRkSXBHSU83Tnl6YnUxY3F0T0tMT1NGdzVObTYyazBMeTlKek52d0hOZDNOb3dWbWRGVXNkJTJCbnJkakJDbXYwdEFVZ21QUXE0ZmxpNTVjSHF4JTJCZzFQUDFVb096eDZrU3JSd2ZLYW1naWNCTm12TndmNktTJTJGQTFUSnVaJTJGWXczN0kza3ExdHpMWHJjbEl1bzlSSk5wTzBnT2VUTnBxVUhxY2tDJTJGTVZ0JTJGQ0JxMWlmMHF3NHJoRUJHZ3J1SGlmNm81VXJZS0lIUDkxaTJoazA4bjJ6cXFJWmh5OEZmOEJySyUyRlJBTGVXSEZ5S0ZobFFxRmlzekhIa0FnaVBsJTJCRjdwSW5rUXMwaGRNMWN5YVRsbHkzcmd4WmxUemhMJTJCbnJZQU14MFdsS1R2YVdiWllnVUxjTDhGJTJCUGtnRmNzbWxYSm9rWGE0dTMlMkJsOEJWSmVMZlc3UTVOJTJCOFdIWEF3NllPTzhYeUtuT3FBRDMyRXRFbDAlMkZFRjJ0cjVnbGEzQTBBM0tuYlp6bnpGbDBXcSUyRklmOTVwNDc5bzFYN21meXhRSkklMkZiMWtBcjhpRVhPWmpVT3F0d1BPRnBkZlZydVI2R0NBMzU1SEpUNDRBRHNxWmVZRWFtbHdnQ0lMZ09ENlNmOFVjMjB6aTlhUHFITDNNMiUyRmczaWc1dGFvQVNIVHlxcHpHYXJCaGp1Z25EbSUyQmtiS1NiaVE2dnclMkJnMmYxZVBqYUI1YmFTVVJPbjBOa0NzVnJTZ2N4blFuZFpSUlpTZTFtSXZUajQwRkJQUWdLVCUyQlIxb0VHektQMk1HNXNTdzZKUzByY1pzVUhMd0JnQVVhaFVPa0sxOTJKZ0VTTXZFMTAwRDdmZk5yYzM1Q1F0dm84UURBJTJCd2JhNk91d09vdVhIRm1zJTJGMWNKV3M2b0tGSVdTV1RJbG9VV3BRJTJCRkgzM2JQV3BJRlFGRXAlMkZGY205dmMzSDlidm5BYVpnc2FGb2lqTHNwWmpXSG15ZEtvbXNqWDlNSXJqJTJGY0VHT3B3QnFIdDNNemZqbFZjWEZMNVhHRWhCQXhmUUJWZVZNaG8zJTJCNkFBNldpdkZKZWZrdUo3aEJUOVdZTzZ5V3k5OUpTM2l0Tll2eHhFVFlPdWN2TW9BWFFRWFM5RXZBT0VaTDVXaWtBaTJQYTlPMUg5TmVtN24lMkI1JTJGdnQlMkJMdW9ZamFRNnBrTm5ZYlluSVlwZCUyQk83R0YxR2xZMERvOFhERlVpcVJhV0Ryd0ZieWQ4RlMlMkIwNG5xRlJNRmFWcGFzZThVM3d3ZFNXMUtZYm1PUnNCZVFCaXomWC1BbXotU2lnbmF0dXJlPTEwZjE3ZmJlMDNjYzFhMWE3MGZmOTFkZmM2OTExYjEyZDU4NzM2ZGJjMzUxN2ViYzY5MGFkNTdjNTdjNjdkNTgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JngtaWQ9R2V0T2JqZWN0"
+    },
+    {
+      "prompt": "2. \"Visualize a spirited beach volleyball match unfolding on a verdant university campus between four dedicated players\u2014two females and two males\u2014with a female player fiercely driving the ball towards her adversary's head. On the scene's periphery stands an imposing University Tower to the left and an active Football Stadium to the right, placed against a placid sky adorned by cottony white clouds.\"",
+      "features": {
+        "style": [
+          "spirited",
+          "visual"
+        ],
+        "subject": [
+          "beach volleyball match",
+          "players"
+        ],
+        "action": [
+          "female player drives ball"
+        ],
+        "objects": [
+          "volleyball",
+          "University Tower",
+          "Football Stadium"
+        ],
+        "setting": [
+          "verdant university campus"
+        ],
+        "colors": [
+          "cottony white clouds"
+        ],
+        "mood": [
+          "spirited",
+          "competitive"
+        ],
+        "details": [
+          "imposing University Tower",
+          "placid sky"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_145953/round_5/image_2.png",
+      "image_url": "https://api.together.ai/imgproxy/kC551FdHtk03y8rp3ScnBe7-1jGKwnhZR0S_fzzkDmM/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzBiYTA5NjJiODI3ZjY0MTQ5NmU3MDY5YTk2NjFiYTlmNGVmMTFiYjYzNGVmYTViNDNjZjg3ZDUxNjZhZTQxOTY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ1BVUlk3NFJKJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIyMDQ1OFomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKR01FUUNJRCUyRiUyQjNJZnRPdWg2ZUhXZG42MWs3TzJJYWk5eEE2amFqRFVpNU1QampwRUhBaUI2QTh3SXFaTkozeUF4TlluYyUyRkRhV1Y4NjZMNlhiS29nbVJaN1hib1dycWlxUUJRZ2ZFQUFhRERVNU9EY3lOakUyTXpjNE1DSU1UJTJCRXRyM2NaYnBldm0lMkJncEt1MEVBSGZlVnBXNERlJTJGMlF2JTJCQ0pIdm9lM1ZrbU40QlZRVjJEaDBPY1hSNHJOcnJWaUNnNnhPcWgwVXRNRTBxU3RYZGpBc0RVZ1FCS1QwcXF3aHZuYTBqYk5adm03VVM3b3ZFemRpSSUyRmtzZ2NJSW5VTkt5OVV2aWtHYk9lN2k3VGJucGNtSUJhUEtnOG5vdnJhN3M5ellJMjV0cHNKQmxYV212WkM5bGZuam9pJTJGJTJGUDZBelZ4eXQ4dWJaSm9pMUxEUVglMkZodHNoU0dsRUlxVWNIYXRYJTJGdXk0TFZNJTJGa3M1cFNSS3YzWE9nWDVNVlhFWFNxSktJM3hPMGMxemFEJTJGczZ5Y01kU1VDZjhsWFZmaHBGM3VoS2slMkI0JTJGNVhFdG9MeVJzeExpMGdUVHMzT0pCVmVSa0t1WFYwQVhDV0RTeXVacjJQOGZiQmpXMnQlMkJoNWNLb1dBck9WN3lteWZycEZDVUNIdTR4M0tyUzExSUdBd2lDYXNITCUyRnBZS2FBNlhTOWJja0FKRFRZUGxVbG5KbU0lMkJBdDklMkZJNThhJTJCMGJDWDU5ZVBCM1klMkJ4dTJ4eG5pVmRBenl6MU1MMml2bndHOWU4WTRyQ294UVZYdFlHYnBsYWp0MHJvbUJmVHlYcW9lSmpVRVglMkZZM0ZseSUyQnhHOW9LaEpHeTVtQzNWNnZxbGZuMGRMMHA3eWZDViUyQnk5RkZyQ3ZSVFJFaCUyRmxjaHclMkJuNXo0TUl2TGJieEtLNUtGSEJYalY0VkFoJTJCbnFSZXE4WlFlb0dia3ViNW51MiUyQkVKam9Yc3hhZ1Q5dkhuUVVmWVlmaDJBelRQbnAxQUhkJTJCdHBnTHdsVU9nY1NIM1hBSnQ5VTUzJTJGa2d1ZThwbm11TTMyYmJlZ2wlMkI3ZHc2RnpIMHFLMjJ2VTVnWUNCRkdYZVk3WkxkS0FmaUtQd0FxNmU0ZHZwR0FBQSUyQkxuOUlyRGFJNkltcSUyRkk3bTNFdzc5blpTVWRMU1BLczVhTFlicGRzWEhxJTJCa0V2U3NVMDNZJTJCTkJGZlhLSCUyQmU1VDBLVGJYa21ub0ZZMXdkN3FRdE8lMkZST2JQJTJCQVg4V1BxUVJJVnNQemh1JTJGRldtemVCU2ZFaTdSNEZrWWtrTld4VHR5TUlyaiUyRmNFR09wd0J3NU92QjZZYmI0bnJYTkZEelJCV2E3Q3hXaHZhdlZ0SXE4SGJpdWl6NzFnM3ZWdnlDcTlYcXF6eExWdTRJdG9HT2lZbmNMejFwVkplY21kYW1xRVRJSWlpbzRPOFdROHUzR2o3OVRGTHVIT1l3OXk1WjUlMkJyQlhVa0tqMCUyRnpRTlcwbHQ4cU1rSE81S0xjUWFUUk5jUWtsYkVGV3ZHZ0kyVkYwakFQOWd6aEM2bmlNeG1aVUMlMkZHZiUyQmZVSjRZQ3RPdDlvZmFic0tqc0pxYTYyUzYmWC1BbXotU2lnbmF0dXJlPThiMGY4ZTZjZjc2MGZhN2IzYjAxNWIwODIzMTE1MGI1ZTg3NTQ0ZWUxNDM0ZmQ4NGJiOTdiM2RmZDIxMWM3ODAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JngtaWQ9R2V0T2JqZWN0"
+    },
+    {
+      "prompt": "3. \"Capture the adrenaline rush of a co-ed beach volleyball competition happening on a picturesque university campus with manicured green lawns; specifically when one sporty woman delivers an impressive spike almost hitting her male rival\u2019s head. Iconic structures like ancient University Tower peering from left and state-of-the-art Football Stadium gleaming at right complete this dynamic composition beneath serene skies dotted with puffy white clouds.\"",
+      "features": {
+        "style": [
+          "dynamic",
+          "captured"
+        ],
+        "subject": [
+          "co-ed beach volleyball competition",
+          "athletes"
+        ],
+        "action": [
+          "woman delivers spike"
+        ],
+        "objects": [
+          "volleyball",
+          "University Tower",
+          "Football Stadium"
+        ],
+        "setting": [
+          "picturesque university campus"
+        ],
+        "colors": [
+          "puffy white clouds"
+        ],
+        "mood": [
+          "adrenaline rush",
+          "dynamic"
+        ],
+        "details": [
+          "ancient University Tower",
+          "manicured green lawns"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_145953/round_5/image_3.png",
+      "image_url": "https://api.together.ai/imgproxy/gp0cxNK-C3g_laaYo3CYuAbdRACTAL3uTGb0kT7PCxg/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzBjOTIxM2UxNzk5MjBiYTJhYjg3ZGFiMjBlMTQxNTJkYjM4ZjBmNWJkNGZlNDIwYjc4Nzg0MjExZGM3Y2U4YTU_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0VLQzRSVkZQJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIyMDQ1OVomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSE1FVUNJUUQ2RWxnOVI4cEolMkY5a21USXBSSlFIWTlmSWpzdVhXJTJGQzZTcTBLS0xXbVA1Z0lnYUp1eTN6SyUyRlU5SGJEbEJwT3RjUm9JUDlRN1BYbUU2UCUyQmxvJTJGZmZ3RFlsTXFrQVVJSHhBQUdndzFPVGczTWpZeE5qTTNPREFpRE54bjB1QkJWazFwUGpPbGlpcnRCTjZWbTZnOW8xalVlbWhoazhOclpEcWdGUllaR01Ob0R4R2FFWVZSVVBIVDRPRm0lMkZSNkY0Y3RtMHlOSjMlMkJMU2REZWVJUElEZ3dMa3RlMnhHeWlyR2NYeGxadjJQbWRTUzVrbVcyVlBtMzdHTmZuT0h6RjNVcU1LYkZxelFhd0h1VDFWckVHOTFVYmx1d3M3V0dmciUyQlZGdEl1U1FST1h1TjlTd0ZVZGpITGl4M0hLMlFXQm5XWTFnajI4RE5qTWdNSmVyNGFjc1hjdGU4N2wxOFlRMWozRHZMSmhBSTRDdWh0WmRXU0J6SXVqQmhpSyUyQk12MCUyRnVnb3ElMkJicDZOemE2dVNrc3VGZmdBRXFLM1VweE8lMkJiVXMlMkZxQWo3Rm5CdTBmUVVWb0NWaWdsMUEzdXk2b011eHhLaTklMkZadkR0SEFpakp3OVVCSDh2dGphUGx1VzNXMWxKa1pTUnUzYXoybjNQVkx3Ym9heVg5a244b3QlMkI5b0JVcmdiSHN0cGxvOVRnZjV4WnZOdE9neG90R3lITkglMkJZV2VldmNVRTVidkVqSWNsdDNVcmlVUUUwaFM4MEhwaiUyQmc1ZkNCVkVqSlVMRGZWaVc5YVpKQU1uU3J1SGFBUU9TUldmRCUyQmlDOWt3VSUyRkNPdG1jZXJzNFRHUUZ1RCUyQlZLeiUyQjM3T1pOeEl4eFRVS3FnVHRWb25HU2RLNlA1SEsxdmh2WEp0bXVEVEclMkZ5eFAyTmpURndwazJ0YVE0eHpMVHR0N2JLVjBRUXpBU2RlUE5VZ2QzaGNqWUU0azBPOThDYVJmcWw1cEVYQUt0RXRQdHhXU2xSVjdicjYlMkJMT0k3OXZwZWp6Y0hDb1BpZUxDU1ZCbFhJY1NvMWVGdE45RzZpS2h4cUgyWnVieExFdjlYbG5DNllTY3RZejVKbjNzSmtPaFZjJTJCY0lsSVpaZiUyQkRiZnRpYTNka0tXcm1vbVA5OUZ2b3V4VWt0RnZCMzBCTDdwSXpiM3NyajRRZHN5WHRSZ2hmVEdIUTFoU0c0RTdpTU9oT3hTJTJCZUlOSExRNGxQS0FZbXhYbXdnbUxXVEs2VmFnY3dkaEJhend3VDBrUm9oTEp4T3h4UiUyRk9ZVjZrbFp6Q0w0JTJGM0JCanFiQWJwakI4ZzM4b1UlMkYxNW5Belh5N0xTJTJGeGczeVJubnNwa0s2UnZqVFdWUnFSako1RGZZJTJCazlUUThHblZJbjlLekUlMkJCQTNVbmlaJTJGblZUViUyRnhubFVEMzBwaFpUYmIyb0Rscjg2YkZvRGJMbCUyRlY2JTJGeHpTYjNyeVV2ODZIM3NVaGUyWWJjN2xPJTJGakt6NEVBUkFQcjNJZE10elB4MGN4RkFIdFVUWmMwVnBWVnpLOWNXMHgyJTJGNXFpS053RlJUaEh6VWslMkZNZ3M1QmJGVGl4cXpCMmomWC1BbXotU2lnbmF0dXJlPTAzNzM2NGFmNTQ0M2M5ZWU5ZmE4YTY3ZjEyYjk1MTJiMTQ3ZmM0ZWU2M2ExZWIxYmU4OTMwMWI2OGE3ZGVjNmEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JngtaWQ9R2V0T2JqZWN0"
+    },
+    {
+      "prompt": "4. \"Convey through art, action-packed visuals of two men and two women engaged in beach volleyball amidst lush greenery of university grounds; particularly highlighting when one athletic woman lands powerful spike causing close miss to male competitor's head. Nearby landmarks feature traditional University Tower on left contrasting modernistic Football Stadium towards right under tranquil azure sky speckled with fluffy white clouds.\"",
+      "features": {
+        "style": [
+          "action-packed",
+          "visual"
+        ],
+        "subject": [
+          "beach volleyball",
+          "players"
+        ],
+        "action": [
+          "woman lands spike"
+        ],
+        "objects": [
+          "volleyball",
+          "University Tower",
+          "Football Stadium"
+        ],
+        "setting": [
+          "lush university grounds"
+        ],
+        "colors": [
+          "fluffy white clouds"
+        ],
+        "mood": [
+          "action-packed",
+          "competitive"
+        ],
+        "details": [
+          "traditional University Tower",
+          "tranquil azure sky"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_145953/round_5/image_4.png",
+      "image_url": "https://api.together.ai/imgproxy/lgKa5HcFi2nZy0ApY1SvmqzFj-izyuw5pBtO7T0tAj0/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzL2MzNmY4ZWY3YjVlMmE4YTZlYjE1OWQwZGNkMDZjYjk5MTc1OTQ1YTkxMTE4YzIwMTM2ODk0NzBmZjI0ZjE4YjQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ042VVJMMjZMJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIyMDQ1OVomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSU1FWUNJUUN1akRlMUFMMG9xeHpRc2d2dDFQeFNuWCUyQjRwdThoRzcyMTRaJTJCa1hqYjRWUUloQUwlMkYxT29FamJLbVQ4Z2M1UXhIalNqTm16d2kzRUlYMW5kRzNGdXpXTTE1TEtwQUZDQjhRQUJvTU5UazROekkyTVRZek56Z3dJZ3duYVBkbnVnNHNBSkc4NHIwcTdRVGp3ODBMS1FXdkJ1TG8zbk1wYnRXOEhyNkJNc2Y5bFN6V1AyeCUyRk5DZ2RPd0hEUlc4SkxIdWRKdXZWN2R2VTdla0t2Ykhhb25vQkElMkJMQWRzeFUlMkJzNkJPaGRJVFlPYkcwSiUyRkRaYmRpJTJGOVBtSXZoUEd5Z0dlNW1JZU01UFRsbXNTTmxqand0NDVPQXdBTFV2NDdJaWhDM2VuNXZBQWFWZTZ5Nkp4Q1ZYUkklMkZGT3hTeUNuRlc1S0VCeGY5UXV6TTNZUWpHUkxrSThNTE1VZEc2TzBjJTJGV0VPJTJGUWdISGZFQ1FnR0pnQjdBck5tVTlNVUE4YTkyblFQTU0yRU9tenN1ZlF5RWY1ZlNvajlYJTJCRVolMkI2djhOdm51QnRsNmVNY2twbmw5eUs0dU45Qzl5RmFTQk9LNUFSY0tuUWFQWnR5UWJpdFYzWXhjdHpmVkY5dUdVNHR6dlFzaHdIMGlaZVY4d1pZZ1ppbkRFakFSR1JsUEhVQnBQaHRoZnU5ZzZpJTJGMEVSOGU1T0NLT0UyUnNxQ3FJeWl2T3BJJTJCNXBJYVQ5aVRzcGxiJTJGViUyRlVsNUYxTFJxUVNDdFpUV0dkMWU2ZFRlZlRPM0hCVkZsYk5tcENzZktnNWkwczRHR2VoWUVJU1NWZTlzVkVEZmdMd2NjOFpXSTVZNFlYbjY3a0E1SVVBVXklMkZYTzBhJTJCSUFvY1V5NE80ektZJTJCMHdKemZpcUw5eFg1RHBtT3RUWlBvdktzMm1NRCUyRkQlMkJWMTMlMkJlJTJGcDZaQXVNSUVCcEx1Z24wQXEzcklBeHBocW4lMkIlMkJyMUpoa3lKODVDTmZWOTJBSWMlMkYwWkM1bWRMNzZTNTdNU1pMS3Radm95N3FJbDZOcERhbFlNVFBaOXk5azBka3lacFFFd044R0g0TmFZdFpQTHR2amI4ZjJkYlROYVYlMkZsTHNTTDh6WFBHZ09NeTdOSSUyQkhMOHJYTWdlNWljUTFydWFoN0NqYVRNVE0yamJYRXdXaEdvcVRLNFQ0RGVTNnpON2tTUExmQ0h4aWc1YVV3bnNSU2ptWWIlMkJldCUyRnhYa2FKQ3hBY2JKJTJGTHhjVndMd2k4N2RpcnowUWxSb1lSUUZYbjlUa2FQWDhwQTklMkJ1TXdpJTJCUDl3UVk2bWdFUkY0SGFCJTJGNFJ0WGtvYTBlVXl4ZFZQRFExUTNUVGxHd0hoWHJFeDdpOFElMkJXR2NlYmh6SzNYTXRadmF3SUslMkZrd3B6OVRhVEJLenFTdHdRWGJ5VXRQOFZxN0lsajJzM1FHbmFhVVlhJTJGUUxBU29sbFMwJTJGJTJGdWQlMkZUOUJKTkN5OEdEdCUyRkJFY0Y2TktCJTJCeUFCZ2dodTJWSmZ0TTlBdWtFVGhERkVNJTJCdGpnUTllQTdsN0FTYjAlMkI4UHgxUHN4V0FudDA5JTJGQ05XRmxDYnhVMmxjdyZYLUFtei1TaWduYXR1cmU9Zjk3MTE0MGIzY2ExYWJkODM0YjliZDJmODMwNDJmZjFmODMwYTViZWYyN2E3NTc2Nzg4ODkwYzIwNDU5YWU1NyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmeC1pZD1HZXRPYmplY3Q"
+    },
+    {
+      "prompt": "5. \"Depict the lively atmosphere of co-ed beach volleyball played out on grassy academic grounds featuring four ardent players \u2013two males and two females\u2013 frozen mid-action as fearless woman descends smash hit narrowly missing man\u2019s head; both overshadowed by stately University tower seen far-left juxtaposed against bustling Football stadium set far-right amid clear blue skies graced with billowy white clouds.\"",
+      "features": {
+        "style": [
+          "lively",
+          "depictive"
+        ],
+        "subject": [
+          "co-ed beach volleyball",
+          "players"
+        ],
+        "action": [
+          "woman descends smash hit"
+        ],
+        "objects": [
+          "volleyball",
+          "University Tower",
+          "Football Stadium"
+        ],
+        "setting": [
+          "grassy academic grounds"
+        ],
+        "colors": [
+          "clear blue skies",
+          "billowy white clouds"
+        ],
+        "mood": [
+          "lively",
+          "dynamic"
+        ],
+        "details": [
+          "stately University Tower",
+          "bustling Football Stadium"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_145953/round_5/image_5.png",
+      "image_url": "https://api.together.ai/imgproxy/Mp9_UBEDgPp7rjaq75WBpDPCrHQuw466Lzh_S-qwG2c/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzLzgwOGE1MDYyZDAyZTUwYzBiY2Y1ZTkzMjc2OTU4ZGVlYmM4ZTYyZTI1MTRiM2I1MTYxYzMwN2VmZGZkMWFjMWI_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0NTVFgyVVVQJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIyMDQ1OVomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSE1FVUNJUURvOSUyQjI3Y1BiVE1IT2s1Qk5IclM3Rmh3VUZ1c1RoZ0FBT2xTV0N1eVc5WFFJZ04zT213ViUyRkxIMmpUVDFaRGV6ZmhJdkRTJTJGU3lza0Nhb3hjekJkcktuJTJCTUVxa0FVSUh4QUFHZ3cxT1RnM01qWXhOak0zT0RBaURIZTI3NUJWJTJGemMlMkZ6NHhhZXlydEJEaDRBZjQ2enVOYlRzMFhQWjN6dVBTUGF0OTMlMkJ2TDM3UUR6d0c1QXQyc3BNWWklMkJ2bm1IVGFpZkltVUkyUnZmSVVOd210MGhhSHdBJTJCeGI2WVBYS3ltSWc2UjRLWU00ZjZrbGhEZDFxOWU3cG1QWUhsRlk2a2tNZGk3SCUyQklSR21kOFUxMFowMUFSRkF6bE4lMkJ0ZW9lckJNeEJ2dkJtJTJCJTJGcUVFQ0dVWXRjVW9ZUHRkaVJrZlV1YlQ5M0lXeUFiMiUyRmM3RWN5dUxhbkZLeVc1JTJCbWZ2UGx3MHp1cm9vaEVkbmVnYnRKb1lHRHN5clF4N3owZ2tJdW9yN0FhazdnOXNsSmZmUTNsYkhDNUIzWUpaTFA2MzQ1WGZZekRST2xtNWRvdHlFbTZoY3NuNEdoJTJGcUp4N2FpT2VqVDE4eDZNTWxWelhKNm5CcFM1ZnN6YUk0RndtWjJtTFJXalglMkZGOVBnMUpFTGs1N1pyWG5pRGx3SWRNd29jaHNORkZqSjlEdUhKQ1RyeHRaM1hrdUQyUTVRTnE1bnREaUZlOSUyQlZvdzBidUpmb0kycDcweWZtVk0weVlEak5USTF4Y1RRYzNjNlF5d0VNcGdQamZIWmklMkZ5aWhNVW12aERydExRUWlmM0g3RUpjSFhHcm1DbGRZM25Va1JjalVYMWh1M0FvcWU3Qlh0WmJxZDFadDVCa0xhZ0l6aUM0SUJWRiUyRkJjeU5Hb2o2WXU2T2EwYiUyRmN0ekFBYWYxZEtnT0p5VmU0R285TDMzdnkzRWdIbEhxeHhhd2RUaUJibWVSek5rdkR2VXpkYUk4dmFvMHpKVSUyRlY2YSUyRkhoTmJiWThkRkI3Mm0lMkJrN1MwMG1VT2NzWnVyN2xzWW94c1ZqamQxMHRVUiUyQkR0aUcwNDQzbFgwVm5iMVdFZWI0QWxTZWFTTmZFMWFHQVZNWFN0JTJGNEo2N0NiZktvVzZhd1h1JTJGWVQ1SDlkbVYlMkZXNnBmUzJ5dGVYMEVPNXJJQ0N0Z3Yya1J6eW9mZ0QlMkY2bE5ia1Z0dnNYQ2VIU1ZXeUpvR2NydXA4Y1lwSTZJUzBDMzBnaWQyZ2FBdGJiSVhIVUVkJTJGREYyNGRTU2lKMkZSSVVOVEJONEhqQ0s0JTJGM0JCanFiQVNlRk94QjY4ZWIxazR0WDdoQkJxa1puMk1VJTJCZnAyYnFTJTJCVmE4QVE2dlU5ZG1WMkdpJTJCd28wWnhJRHclMkZuSXloTEEzak0lMkZ6YnFhUlR6djlPdHJZY04xJTJCZEltejVhY2lJdHYySWRwSSUyQjdndUlIZ29wNWdHRlRZTVl6TFdPTlNCNWtMVFdEZThxcDBzV2pnckVlRXpPcW4wQjRLQzBValJxdmF5RkJVaHNXTGNXSGpXdFloeWI5YmpLSVJvSXdWSFZBZ1FLYVhpWndxQkJ1bW9iJlgtQW16LVNpZ25hdHVyZT0yNDU2OTc4ZTlkY2M0YmZmN2QyODhiNDkyZDgxNmM3MGUwMzVhMjdlYjIxMmNhMzdmODdmZDg2MTg4ZTcwYmYxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZ4LWlkPUdldE9iamVjdA"
+    },
+    {
+      "prompt": "6. \"Render a dynamic split-second of beach volleyball game where two men and two women exhibit great camaraderie on the lush university terrain, specifically the moment when one woman in contrasting sportswear hammers down ball towards male player. Completing this university canvas are prominent structures: University Tower to left adding old world charm and Football Stadium to right reflecting modernity, all set against calming sky filled with plush white clouds.\"",
+      "features": {
+        "style": [
+          "dynamic",
+          "rendered"
+        ],
+        "subject": [
+          "beach volleyball game",
+          "players"
+        ],
+        "action": [
+          "woman hammers down ball"
+        ],
+        "objects": [
+          "volleyball",
+          "University Tower",
+          "Football Stadium"
+        ],
+        "setting": [
+          "lush university terrain"
+        ],
+        "colors": [
+          "plush white clouds"
+        ],
+        "mood": [
+          "dynamic",
+          "camaraderie"
+        ],
+        "details": [
+          "old world charm",
+          "modernity"
+        ]
+      },
+      "image_path": "vision_crafter_20250603_145953/round_5/image_6.png",
+      "image_url": "https://api.together.ai/imgproxy/g148H1IDzvHlA-CaDzjJJjLx24DRAja7BkBVkjNx2lE/format:jpeg/aHR0cHM6Ly90b2dldGhlci1haS1iZmwtaW1hZ2VzLXByb2QuczMudXMtd2VzdC0yLmFtYXpvbmF3cy5jb20vaW1hZ2VzL2FjMTc3YWVmN2Q5NmZiMjU3ODAyODc0MGJkZmEzZDhiNmVjZTQyODIzNjJlYTc0OWU3MDExOGE4NDJkODhkMTc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ29udGVudC1TaGEyNTY9VU5TSUdORUQtUEFZTE9BRCZYLUFtei1DcmVkZW50aWFsPUFTSUFZV1pXNEhWQ0dNRTVRM0hCJTJGMjAyNTA2MDMlMkZ1cy13ZXN0LTIlMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjAzVDIyMDQ1OVomWC1BbXotRXhwaXJlcz0zNjAwJlgtQW16LVNlY3VyaXR5LVRva2VuPUlRb0piM0pwWjJsdVgyVmpFRVlhQ1hWekxYZGxjM1F0TWlKSE1FVUNJRVZuUExEJTJGZGlBeWxqd0JIYUo3czg5QnJ5JTJCRGR6bXB6YXg1cFlzbDRzUm9BaUVBcEhQNk02MkVNdzBuNzdEMXdBdkN5ZGdDMG1Uc0Y3ajhud01PMklFVEdXc3FrQVVJSHhBQUdndzFPVGczTWpZeE5qTTNPREFpREhUWExHWm1ydHVjVzBDSjZ5cnRCSlA4JTJCRE9SeEFReHNXTDdXb3ZmJTJCemJzeCUyRkpYbVZPMG5Cc0l2ViUyRjBzSkZkV2NVY05vTWVkY1pTQjBBcUJJb3RrT1N6VFA4c1hKTFlMOXFTc3R0cjVValpaYnRUTWJWSlBTJTJCcG5ReWZEYVpiYjJGJTJGR3JzMHJIJTJCcGlRT0lWb0VMVDNlN2xyYUVpNXQwbUVGMDhXSjE2bXY5NjBBdm5Xd1hJbkJPZ0J5WDUzY2M0VWdsaVR2JTJGTWRQJTJGR21QODZEc0lUcmpxekxBYlNIWFRYNGxudld0bjQ1Vk5hNnVLQ2VPdWlNZk9zSjFxdjhRVnZVJTJCWXhYUFdJeUtoU2gwaFZRQ3Z6R0MxSWRJSkUlMkJldUJ5OEtoWDRzb0FqY2MlMkZWU3hiZ2lqd2d4UFRkdHoyQVZDRHFlUEx1OHEweFVibiUyRmNzQzltcXd6aFFyRElWMlA5Y0pldmZRaUowdXhqJTJCZVp0bUI1c0hNNkNaSElqZTcyUXVYNzVKODgwUVMlMkJncERZSXVWRDdlNW1SZmdsTTRiSVdTVkZyVVg4aGoyS0hYYU11MmpqZWQ2Y3NrZUp2anVuczRqNUFKYU96TFB3ZVRUSFFXTzNTOUJNNG11RnBHMkprNHBtWXg5V0RQNkpLWXNuVVphZVdiUE0xS0g2c21keGpBaUNBYzVwWWJtTTVma09JeG1OTUxreEVUaDBwWXNxYWg5JTJCeFp4bTZ3dkFQcmQyb0RjVE1nZ0lrYnFaYWY2RWxpeU9TTyUyQmIlMkZtaTU5S05YcEFmaG9UeGZJVXhRTEx6ekk0RXgzSjJ0QndEb3MxUmg5b2tSUGd4Z0EzdE03aUlxdmUyUTclMkJQSTYwSFVvNXV4OXRXektkS0FLdkw0UnhkSkFYOXpYU3I2UnVHWGJ2ZmFaQmxINjlMeURFY3RrNnR0Z3NWOXlKaExkN2pMMXRja09DelE0SnhIcVdmVFA1MEklMkZLNkJFdkJFMGt0JTJGaXBtemJRMjRpcUVFdk9hYTVreEtBclBJTWprbzVyYXlCWW5iRkV0ZzI4UGh6ZnZjejBtSVhYOVp0Ym9wdHB5SWprMyUyQm00c0ZIWFZTT01KVFBIRjVpUzA3MU42U2l6JTJGTFQydVBRMVRDTDQlMkYzQkJqcWJBUlNPSlBNbUUlMkIyM3hNR1hXVmVJNk5xQXh5MzlxSGtydklPc05rV3NYR1I1RjZCOUlJUmNCNFRHeUQlMkJTd0hySiUyQmRvVTFndFYxM1NEaWtTSmlSbUl0T0V4TGJQd3YwNkhKN3QxUkloTUo4U2xSOGpQNm5Kc1BYMzVuYndXbDMybmYxMXRzT1ZhdDBGN2pvN2pqQnYwYjltWFpUS1h1YTVqaWRPVnNseXJIYU5LRWt3Mzh5SnhBVkNhTnQlMkZFJTJGYjlZNEwyaDRNWkUlMkZTdCUyQjkzY1AmWC1BbXotU2lnbmF0dXJlPWE5NWQ4N2ZkMTY2NjliZmNiNDI5YTlmNTBjZDQ2NTg3NTdiZmRlMTFkZDY1ZDA3YWVmOGI5ZTA5MTdhMDk5ZWQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JngtaWQ9R2V0T2JqZWN0"
+    }
+  ]
+}

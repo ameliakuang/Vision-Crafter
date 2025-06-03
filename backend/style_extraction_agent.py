@@ -1,6 +1,9 @@
 from openai import OpenAI
 from typing import List, Dict, Optional
 import json
+import logging
+
+logger = logging.getLogger(__name__)
 
 class StyleExtractionAgent:
     def __init__(self, openai_client: OpenAI):
@@ -82,7 +85,7 @@ class StyleExtractionAgent:
         Please extract the most prominent features for each category, up to {num_keywords} items per category.
         Respond with a JSON object containing the extracted features for each prompt.
         """
-
+        logger.info(f"StyleExtractionAgent sending prompt to LLM: {prompt}")
         try:
             response = self.client.chat.completions.create(
                 model="gpt-4o",
@@ -100,11 +103,11 @@ class StyleExtractionAgent:
             
             # Parse the returned JSON
             content = response.choices[0].message.content.strip()
-            print("Extracted Features: ", content)
+            logger.info(f"Extracted Features: {content}")
             return json.loads(content)
             
         except Exception as e:
-            print(f"[StyleExtractionAgent] Failed to extract features: {e}")
+            logger.error(f"[StyleExtractionAgent] Failed to extract features: {e}")
             return {}
 
     def update_examples(self, new_examples: List[Dict]):

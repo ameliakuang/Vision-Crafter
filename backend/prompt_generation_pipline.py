@@ -3,6 +3,9 @@ from datetime import datetime
 from typing import List, Optional, Dict
 from .prompt_generator import PromptGenerator
 from .style_extraction_agent import StyleExtractionAgent
+import logging
+
+logger = logging.getLogger(__name__)
 
 class PromptGenerationPipeline:
     """
@@ -43,13 +46,13 @@ class PromptGenerationPipeline:
             - prompts: List of generated prompts
             - extracted_features: Features extracted from the prompts
         """
-        print(f" [Round {self.round}] Generating diverse prompts...")
+        logger.info(f" [Round {self.round}] Generating diverse prompts...")
         prompts = self.prompt_generator.generate_prompts(
             user_description=user_description,
             num_prompts=num_prompts,
             initial_prompt=True  # Indicate this is initial generation
         )
-        
+        logger.info(f"Generated prompts: {prompts}")
         # Record generated prompts
         self._record_prompts(prompts, liked=None)
         
@@ -75,27 +78,28 @@ class PromptGenerationPipeline:
             - prompts: List of generated prompts
             - extracted_features: Features extracted from the prompts
         """
-        print(f"[Round {self.round}] Generating refined prompts based on user preferences...")
+        logger.info(f"[Round {self.round}] Generating refined prompts based on user preferences...")
 
-        # Build context using all historical preferences
-        additional_context = self._build_liked_prompts_context()
+        # Build user preferred prompts using all historical preferences
+        user_preferred_prompts = self._build_liked_prompts_context()
         
         # Use all historical style keywords
         style_preferences = self.preferences["style_keywords"]
 
         prompts = self.prompt_generator.generate_prompts(
             user_description=user_description,
+            initial_prompt=False,
             num_prompts=num_prompts,
-            additional_context=additional_context,
+            user_preferred_prompts=user_preferred_prompts,
             style_preferences=style_preferences
         )
-        
+        logger.info(f"Generated prompts: {prompts}")
         # Record generated prompts
         self._record_prompts(prompts, liked=None)
         
         # Extract features and return to frontend
         extracted_features = self._extract_style_preferences(prompts)
-        
+        logger.info(f"Extracted features: {extracted_features}")
         # self.save_history_to_json()
         return {
             "prompts": prompts,

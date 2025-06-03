@@ -32,7 +32,7 @@ class PromptGenerator:
         self,
         user_description: str,
         initial_prompt: bool = False,
-        additional_context: Optional[str] = None,
+        user_preferred_prompts: Optional[str] = None,
         num_prompts: int = 6,
         style_preferences: Optional[List[str]] = None
     ) -> List[str]:
@@ -41,35 +41,64 @@ class PromptGenerator:
 
         Args:
             user_description: User's input image description
-            additional_context: Optional additional context information (such as previous prompts for in-context learning)
+            user_preferred_prompts: Optional user preferred prompts context information (such as previous prompts for in-context learning)
             num_prompts: Number of prompts to generate, default is 6
             style_preferences: Optional list of style preferences
         """
         # Build complete system message
         system_message = self.base_system_message_template.format(num_prompts=num_prompts)
+        
         if initial_prompt:
             system_message += self.initial_system_message_template
         else:
-            # detail control or general control, which means an image can only have style_preferences or additional_context(since additional_context may contain the style or elements that the user don't want)
-            # if select certain style preferences, use them to generate prompts
-            if style_preferences: # potential todo:use LLM to summarize user preference(maybe can make this as a small trainable module)
-                system_message += f"\nPlease focus on these specific styles and image details: {', '.join(style_preferences)}"
+            # Add feedback handling instructions
+            system_message += """
+            When incorporating user feedback and preferred prompts:
+            1. Analyze the style, composition, and artistic elements from preferred prompts
+            2. Maintain consistency with previously successful prompts
+            3. Ensure each new prompt builds upon successful elements while introducing fresh variations
+            4. Pay special attention to specific details and elements that the user has shown preference for
+            """
+
+        # Construct the user prompt with clear sections
+        prompt_sections = []
+        
+        # Base description
+        prompt_sections.append(f"Generate {num_prompts} different image prompts based on user's initial prompt: {user_description}")
+        
+        # Handle user preferred prompts
+        if user_preferred_prompts:
+            prompt_sections.append(f"""
+            Previous successful prompts that should guide the style and elements:
+            {user_preferred_prompts}
             
-            # if only select the image without selecting any details
-            if additional_context:
-                system_message += f"""
-                The user has previously preferred the following prompts, which reflect their preferred style:
-                {additional_context}
-                Please take these preferences as in-context examples. In addition to strictly following the instructions above, your generated prompts should match the **style, tone, artistic direction, and level of detail** found in the user’s preferred prompts.
-                """
-            
+            Requirements for new prompts:
+            1. Match the artistic style and composition of the preferred prompts
+            2. Maintain similar level of detail and complexity
+            3. Keep consistent with successful elements while adding fresh variations
+            """)
+        
+        # Handle style preferences
+        if style_preferences:
+            prompt_sections.append(f"""
+            Style requirements:
+            1. Strictly follow these style preferences: {', '.join(style_preferences)}
+            2. Ensure each prompt incorporates these styles while maintaining creativity
+            3. Balance style consistency with unique variations
+            """)
+        
+        # Combine all sections
+        prompt = "\n\n".join(prompt_sections)
+        
+        logger.info(f"PromptGenerator: current system_message is: {system_message}")
+        logger.info(f"PromptGenerator: current prompt for the LLM is: {prompt}")
+        
         try:
-            print("current system_message is:", system_message)
             response = self.openai_client.chat.completions.create(
                 model="gpt-4",
                 messages=[
                     {"role": "system", "content": system_message},
-                    {"role": "user", "content": f"Please generate {num_prompts} different image prompts based on this description, each prompt should be unique and creative: {user_description}"}
+                    {"role": "user", "content": prompt}
                 ],
                 temperature=0.8,
                 max_tokens=1000,
@@ -85,5 +114,5 @@ class PromptGenerator:
         
             
         except Exception as e:
-            print(f"Error occurred while generating prompts: {str(e)}")
+            logger.error(f"Error occurred while generating prompts: {str(e)}")
             return []

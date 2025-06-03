@@ -54,11 +54,11 @@ class StyleExtractionAgent:
         # Use custom examples if provided, otherwise use default examples
         examples = custom_examples if custom_examples else self.default_examples
         
-        # Build examples string
-        examples_str = "\n".join([
-            f"Prompt: {ex['prompt']}\nExtracted Features: {ex['extracted_features']}\n"
-            for ex in examples
-        ])
+        # Build examples string with numbered format
+        examples_str = ""
+        for i, ex in enumerate(examples):
+            examples_str += f"Prompt: {ex['prompt']}\n"
+            examples_str += f"Extracted Features: {{'{i+1}': {ex['extracted_features']}}}\n\n"
 
         # Construct the prompt
         prompt = f"""
@@ -83,7 +83,7 @@ class StyleExtractionAgent:
         {chr(10).join(f"{i+1}. {p}" for i, p in enumerate(prompts))}
 
         Please extract the most prominent features for each category, up to {num_keywords} items per category.
-        Respond with a JSON object containing the extracted features for each prompt.
+        Respond with a JSON object in the format: {{"1": {{features_for_prompt_1}}, "2": {{features_for_prompt_2}}, ...}} where each numbered key corresponds to the prompt number.
         """
         logger.info(f"StyleExtractionAgent sending prompt to LLM: {prompt}")
         try:

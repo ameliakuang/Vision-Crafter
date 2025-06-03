@@ -104,10 +104,11 @@ async def gen_images():
 
     # Generate images in parallel
     together = current_app.together_client
-    image_results = await generate_images_parallel(together, generation_result["prompts"])
+    image_results = await generate_images_parallel(together, [p["text"] for p in generation_result["prompts"]])
+
+    logger.info(f"prompts: {generation_result['prompts']}")
 
     return jsonify({
         "prompts": generation_result["prompts"],
-        "extracted_features": generation_result["extracted_features"],
         "results": image_results
     })

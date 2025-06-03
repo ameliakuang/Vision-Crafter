@@ -68,6 +68,7 @@ class PromptGenerator:
         
         # Handle user preferred prompts
         if user_preferred_prompts:
+            logger.info(f"PromptGenerator: user_preferred_prompts is: {user_preferred_prompts}")
             prompt_sections.append(f"""
             Previous successful prompts that should guide the style and elements:
             {user_preferred_prompts}
@@ -80,6 +81,7 @@ class PromptGenerator:
         
         # Handle style preferences
         if style_preferences:
+            logger.info(f"PromptGenerator: style_preferences is: {style_preferences}")
             prompt_sections.append(f"""
             Style requirements:
             1. Strictly follow these style preferences: {', '.join(style_preferences)}

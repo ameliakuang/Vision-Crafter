@@ -33,7 +33,7 @@ class PromptGenerationPipeline:
             "style_keywords": []  # Store user's preferred style keywords
         }
 
-    def generate_initial_prompts(self, user_description: str, num_prompts: int = 6) -> Dict[str, List[str]]:
+    def generate_initial_prompts(self, user_description: str, num_prompts: int = 6) -> Dict[str, List[Dict]]:
         """
         Generate initial prompts and extract features for frontend feedback.
         
@@ -43,8 +43,9 @@ class PromptGenerationPipeline:
             
         Returns:
             Dictionary containing:
-            - prompts: List of generated prompts
-            - extracted_features: Features extracted from the prompts
+            - prompts: List of dictionaries, each containing:
+                - text: The prompt text
+                - features: The extracted features for this prompt
         """
         logger.info(f" [Round {self.round}] Generating diverse prompts...")
         prompts = self.prompt_generator.generate_prompts(
@@ -56,16 +57,23 @@ class PromptGenerationPipeline:
         # Record generated prompts
         self._record_prompts(prompts, liked=None)
         
-        # Extract features and return to frontend
+        # Extract features and combine with prompts
         extracted_features = self._extract_style_preferences(prompts)
         
-        # self.save_history_to_json()
+        # Combine prompts with their features
+        prompts_with_features = [
+            {
+                "text": prompt,
+                "features": extracted_features.get(str(i), {})
+            }
+            for i, prompt in enumerate(prompts)
+        ]
+        
         return {
-            "prompts": prompts,
-            "extracted_features": extracted_features
+            "prompts": prompts_with_features
         }
 
-    def generate_refined_prompts(self, user_description: str, num_prompts: int = 6) -> Dict[str, List[str]]:
+    def generate_refined_prompts(self, user_description: str, num_prompts: int = 6) -> Dict[str, List[Dict]]:
         """
         Generate refined prompts using all historical preferences for in-context learning.
         
@@ -75,8 +83,9 @@ class PromptGenerationPipeline:
             
         Returns:
             Dictionary containing:
-            - prompts: List of generated prompts
-            - extracted_features: Features extracted from the prompts
+            - prompts: List of dictionaries, each containing:
+                - text: The prompt text
+                - features: The extracted features for this prompt
         """
         logger.info(f"[Round {self.round}] Generating refined prompts based on user preferences...")
 
@@ -97,13 +106,21 @@ class PromptGenerationPipeline:
         # Record generated prompts
         self._record_prompts(prompts, liked=None)
         
-        # Extract features and return to frontend
+        # Extract features and combine with prompts
         extracted_features = self._extract_style_preferences(prompts)
         logger.info(f"Extracted features: {extracted_features}")
-        # self.save_history_to_json()
+        
+        # Combine prompts with their features
+        prompts_with_features = [
+            {
+                "text": prompt,
+                "features": extracted_features.get(str(i), {})
+            }
+            for i, prompt in enumerate(prompts)
+        ]
+        
         return {
-            "prompts": prompts,
-            "extracted_features": extracted_features
+            "prompts": prompts_with_features
         }
 
     def provide_feedback(self, liked_prompts: List[str], liked_style_keywords: List[str]):
@@ -162,20 +179,35 @@ class PromptGenerationPipeline:
     def _extract_style_preferences(self, prompts: List[str]) -> Dict[str, Dict[str, List[str]]]:
         """
         Extract features from prompts for frontend feedback.
-        Called immediately after generating prompts.
-        
-        Args:
-            prompts: List of prompts to analyze
-            
-        Returns:
-            Dictionary containing extracted features for each prompt
+        Handles both list and dict output from the LLM.
         """
         if not prompts:
             return {}
-            
-        # Extract features
+
         features = self.style_agent.extract_features(prompts)
-        return features
+        formatted_features = {}
+
+        # Case 1: LLM returns {"prompts": [ ... ]}
+        if "prompts" in features and isinstance(features["prompts"], list):
+            feature_list = features["prompts"]
+            for i, prompt in enumerate(prompts):
+                if i < len(feature_list):
+                    formatted_features[str(i)] = feature_list[i]
+                else:
+                    formatted_features[str(i)] = {}
+        # Case 2: LLM returns {"1": {...}, "2": {...}, ...}
+        elif all(isinstance(k, str) and k.isdigit() for k in features.keys()):
+            for i, prompt in enumerate(prompts):
+                # LLM keys are 1-based, so add 1 to i
+                formatted_features[str(i)] = features.get(str(i + 1), {})
+        else:
+            # Unexpected format, log and return empty dicts
+            logger.warning(f"Unexpected features format: {features}")
+            for i, prompt in enumerate(prompts):
+                formatted_features[str(i)] = {}
+
+        logger.info(f"Formatted features for frontend: {formatted_features}")
+        return formatted_features
 
     def _build_liked_prompts_context(self) -> str:
         """
